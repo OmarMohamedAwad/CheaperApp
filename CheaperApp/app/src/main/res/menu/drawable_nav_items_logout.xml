@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_nav_btn"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/logout_nav_btn"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/SignIn" />
+
+
+    <item
+        android:id="@+id/markets_nav_btn"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/Markets" />
+
+    <item
+        android:id="@+id/categories_nav_btn"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/Categories" />
+
+
+    <item
+        android:id="@+id/contactus_nav_btn"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/ContactUs" />
+
+
+</menu>
