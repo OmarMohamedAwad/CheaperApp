@@ -1,5 +1,8 @@
 package com.example.unknown.cheaperapp;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
+
+
 
     Toast mtoast;
 
@@ -67,10 +72,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if(id==R.id.home_nav_btn){
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserAgreementFragment()).commit();
             mtoast = Toast.makeText(this,"Home",Toast.LENGTH_SHORT);
             mtoast.show();
         }
 
         return true;
     }
+
+
 }

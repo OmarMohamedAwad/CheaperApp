@@ -69,6 +69,8 @@ public class UserAgreementFragment extends Fragment {
             }
         });
 
+//        AddSpaceBetweenItems();
+
         return view;
     }
 
@@ -94,6 +96,11 @@ public class UserAgreementFragment extends Fragment {
         userAgreement_checkbox = view.findViewById(R.id.userAgreement_checkbox);
         sign_btn = view.findViewById(R.id.sign_btn);
 
+    }
+
+    //this method used to add white space between expandablelistview items
+    private void AddSpaceBetweenItems(){
+        userAgreement_expandablelistview.setDividerHeight(10);
     }
 
 

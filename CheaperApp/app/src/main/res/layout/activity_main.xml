@@ -8,11 +8,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container">
 
-    </LinearLayout>
+    </FrameLayout>
 
 
     <android.support.design.widget.NavigationView
