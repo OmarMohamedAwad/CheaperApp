@@ -85,6 +85,7 @@
     <string name="storeimg">واجهة المتجر</string>
     <string name="storeaddres">عنوان المتجر</string>
     <string name="addres">العنوان وفقا ل Gps</string>
+    <string name="LimitedOffer">العرض سارى حتى نفاذ الكمية</string>
 
 
     <string-array name="Country">

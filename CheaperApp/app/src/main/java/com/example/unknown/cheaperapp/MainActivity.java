@@ -1,31 +1,23 @@
 package com.example.unknown.cheaperapp;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
+
+
+
 
 
 
@@ -36,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getKeyHash();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
 
         handleNavigationClicks();
 
@@ -85,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if(id==R.id.home_nav_btn){
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UserAgreementFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
             mtoast = Toast.makeText(this,"Home",Toast.LENGTH_SHORT);
             mtoast.show();
         }
@@ -93,24 +85,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private void  getKeyHash(){
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo(
-                    getPackageName(),
-                    PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            }
-        }
-        catch (PackageManager.NameNotFoundException e) {
 
-        }
-        catch (NoSuchAlgorithmException e) {
-
-        }
-    }
+//    private void  getKeyHash(){
+//        try {
+//            PackageInfo info = getPackageManager().getPackageInfo(
+//                    getPackageName(),
+//                    PackageManager.GET_SIGNATURES);
+//            for (Signature signature : info.signatures) {
+//                MessageDigest md = MessageDigest.getInstance("SHA");
+//                md.update(signature.toByteArray());
+//                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+//            }
+//        }
+//        catch (PackageManager.NameNotFoundException e) {
+//
+//        }
+//        catch (NoSuchAlgorithmException e) {
+//
+//        }
+//    }
 
 
 }
