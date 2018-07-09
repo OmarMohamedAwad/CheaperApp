@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+
                 mdialog= new ProgressDialog(LoginActivity.this);
                 mdialog.setMessage("Retrieving Data From FB.....");
                 mdialog.show();
