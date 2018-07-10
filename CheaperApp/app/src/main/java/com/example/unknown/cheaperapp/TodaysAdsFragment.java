@@ -74,7 +74,7 @@ public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapt
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
-        
+
         HandleLoadingAds();
 
         RefreshData();

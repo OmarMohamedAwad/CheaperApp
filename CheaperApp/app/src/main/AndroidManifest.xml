@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.unknown.cheaperapp">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -34,8 +35,9 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".AdvertiserDataEntery_Activity" />
-        <activity android:name=".slider.ProductDetailsActivity"/>
+        <activity android:name=".slider.ProductDetailsActivity" />
         <activity android:name=".MapActivity" />
+        <activity android:name=".MakeOfferActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.unknown.cheaperapp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -80,6 +81,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
             mtoast = Toast.makeText(this,"Home",Toast.LENGTH_SHORT);
             mtoast.show();
+        }
+        else if(id==R.id.markets_nav_btn){
+
+            Intent intent = new Intent(MainActivity.this,AdvertiserDataEntery_Activity.class);
+            startActivity(intent);
         }
 
         return true;

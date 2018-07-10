@@ -48,7 +48,9 @@
     <string name="AllAds">كل الإعلانات</string>
     <string name="TodayAds">إعلانات اليوم</string>
     <string name="product_name">اسم المنتج</string>
+    <string name="product_image">صورة المنتج</string>
     <string name="store_name">اسم المتجر</string>
+    <string name="description">الوسف</string>
 
     <string name="title_activity_navigation">navigation</string>
 

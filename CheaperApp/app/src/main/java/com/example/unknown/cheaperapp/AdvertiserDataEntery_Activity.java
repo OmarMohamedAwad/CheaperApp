@@ -15,6 +15,7 @@ public class AdvertiserDataEntery_Activity extends AppCompatActivity {
     ImageView GetLocation_btn;
     EditText storeaddress_Edittext;
     Button btn_conditions;
+    Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,7 @@ public class AdvertiserDataEntery_Activity extends AppCompatActivity {
         String address = intent.getStringExtra("address");
 
         // spiner code
-        Spinner spinner = (Spinner) findViewById(R.id.spinner2);
+        spinner = (Spinner) findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Country, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
