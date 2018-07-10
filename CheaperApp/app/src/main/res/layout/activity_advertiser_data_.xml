@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -80,7 +80,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <ListView
                 android:layout_width="match_parent"
                 android:id="@+id/listofstores"
-                android:layout_height="350dp"></ListView>
+                android:layout_height="wrap_content"></ListView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,9 +88,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/listofstores"
                 android:orientation="horizontal"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="50dp"
+                android:layout_margin="10dp"
                 android:weightSum="2">
 
                 <Button
@@ -115,3 +113,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
     </LinearLayout>
 </ScrollView>
+
+
+

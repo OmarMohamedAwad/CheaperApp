@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
+    EndDrawerToggle toggle;
     Toast mtoast;
 
     @Override
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
 
 
-handleNavigationClicks();
+        handleNavigationClicks();
     }
 
     private void handleNavigationClicks(){
@@ -54,12 +54,12 @@ handleNavigationClicks();
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(toggle.onOptionsItemSelected(item)){
-            return true;
-        }
+        int id = item.getItemId();
+
 
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

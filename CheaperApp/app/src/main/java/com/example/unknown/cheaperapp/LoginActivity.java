@@ -34,8 +34,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText retypePassword_Edittext;
     Button signup_btn;
     LoginButton loginButton;
-
-
     CallbackManager callbackManager;
     ProgressDialog mdialog;
 
@@ -51,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-    //    GetViewELements();
+    /*   GetViewELements();
 
         callbackManager=CallbackManager.Factory.create();
 
@@ -104,6 +102,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
         }
+
+
+
+        */
 
     }
 

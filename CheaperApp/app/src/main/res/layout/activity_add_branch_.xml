@@ -48,6 +48,7 @@
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:layout_height="wrap_content" />
+
             <EditText
                 android:id="@+id/storephone_Edittext"
                 android:layout_width="0dp"
