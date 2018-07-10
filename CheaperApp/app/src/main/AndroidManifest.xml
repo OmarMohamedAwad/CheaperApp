@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -40,7 +39,8 @@
         <activity android:name=".AdvertiserDataEntery_Activity" />
         <activity android:name=".slider.ProductDetailsActivity" />
         <activity android:name=".MapActivity" />
-        <activity android:name=".MakeOfferActivity"></activity>
+        <activity android:name=".MakeOfferActivity" />
+        <activity android:name=".AdvertiserData_Activity"></activity>
     </application>
 
 </manifest>

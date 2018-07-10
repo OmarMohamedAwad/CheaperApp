@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".AdvertiserData_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/storename_Edittext"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignEnd="@+id/storeimg_Edittext"
+            android:layout_alignStart="@+id/storeimg_Edittext"
+            android:layout_marginTop="30dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/edittext_border"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="@string/storename"
+            android:inputType="text"
+            android:layoutDirection="rtl"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittext_border"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:src="@drawable/ic_attach_file_black_24dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:rotation="-40"
+                android:layout_height="30dp" />
+            <EditText
+                android:id="@+id/storeimg_Edittext"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="4"
+                android:background="#00ffffff"
+                android:hint="واجهة المتجر"
+                android:paddingRight="10dp"
+                android:inputType="text"
+                android:layoutDirection="rtl"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="الفروع"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:id="@+id/listofstores"
+                android:layout_height="350dp"></ListView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/listofstores"
+                android:orientation="horizontal"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
+                android:weightSum="2">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:background="@drawable/btnbackground"
+                    android:text="اضافه فرع" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:background="@drawable/btnbackground"
+                    android:text="حفظ التغيرات" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+</ScrollView>
