@@ -83,6 +83,12 @@ handleNavigationClicks();
             Intent intent = new Intent(MainActivity.this,AdvertiserDataEntery_Activity.class);
             startActivity(intent);
         }
+        else if(id==R.id.logout_nav_btn){
+
+            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+        }
+
 
         return true;
     }
