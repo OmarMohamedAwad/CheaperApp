@@ -88,6 +88,7 @@
     <string name="storeaddres">عنوان المتجر</string>
     <string name="addres">العنوان وفقا ل Gps</string>
     <string name="LimitedOffer">العرض سارى حتى نفاذ الكمية</string>
+    <string name="google_maps_api_key">AIzaSyC6FXmsYsUqwTSIaM_DF5FzPrrj0Jw8DUA</string>
 
 
     <string-array name="Country">

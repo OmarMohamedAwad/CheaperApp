@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        GetViewELements();
+    //    GetViewELements();
 
         callbackManager=CallbackManager.Factory.create();
 
@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //this method for inflating view elements
-    private void GetViewELements(){
+   /* private void GetViewELements(){
 
         name_Edittext=findViewById(R.id.name_Edittext);
         email_Edittext=findViewById(R.id.email_Edittext);
@@ -139,5 +139,5 @@ public class LoginActivity extends AppCompatActivity {
         user_ImageView=findViewById(R.id.user_ImageView);
         loginButton=findViewById(R.id.facebookLogin);
 
-    }
+    }*/
 }
