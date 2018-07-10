@@ -8,19 +8,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
     DrawerLayout drawerLayout;
-    ActionBarDrawerToggle toggle;
     NavigationView navigationView;
-
-
-
-
-
 
     Toast mtoast;
 
@@ -31,27 +26,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
 
-        handleNavigationClicks();
 
-        navigationView.getMenu().clear();
-        navigationView.inflateMenu(R.menu.drawable_nav_items_logout);
-
-
-
+handleNavigationClicks();
     }
 
     private void handleNavigationClicks(){
-
-        drawerLayout=findViewById(R.id.nav_drawer_layout);
-        toggle = new ActionBarDrawerToggle(this,drawerLayout, R.string.open, R.string.close);
-
-        drawerLayout.addDrawerListener(toggle);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        EndDrawerToggle drawerToggle;
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.nav_drawer_layout);
+        EndDrawerToggle toggle = new EndDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         navigationView = findViewById(R.id.navigation_layout);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.getMenu().clear();
+        navigationView.inflateMenu(R.menu.drawable_nav_items_logout);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
 
     }
 
