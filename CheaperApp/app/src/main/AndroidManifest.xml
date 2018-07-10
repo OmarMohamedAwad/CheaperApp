@@ -40,7 +40,8 @@
         <activity android:name=".slider.ProductDetailsActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".MakeOfferActivity" />
-        <activity android:name=".AdvertiserData_Activity"></activity>
+        <activity android:name=".AdvertiserData_Activity" />
+        <activity android:name=".AddBranch_Activity"></activity>
     </application>
 
 </manifest>
