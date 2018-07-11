@@ -57,6 +57,7 @@
     <string name="ChooseOfferDuration">فترة العرض</string>
     <string name="ChooseBranches">افرع العرض</string>
     <string name="Ok">تم</string>
+    <string name="Next">التالى</string>
 
 
     <string name="title_activity_navigation">navigation</string>
@@ -102,7 +103,7 @@
     <string name="addres">العنوان وفقا ل Gps</string>
     <string name="LimitedOffer">العرض سارى حتى نفاذ الكمية</string>
     <string name="StartDateUntilOfferEnd">تاريخ بداية وحتى نفاذ الكمية</string>
-    <string name="StartandEndDate">تاريخ بداية وتاريخ نهاية</string>
+    <string name="StartandEndDate">تاريخ بداية و تاريخ نهاية</string>
     <string name="StartDate">تاريخ البداية</string>
     <string name="EndDate">تاريخ النهاية</string>
     <string name="Allbranches">كل الفروع</string>

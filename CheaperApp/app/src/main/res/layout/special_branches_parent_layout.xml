@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/productName_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignEnd="@+id/storeimg_Edittext"
+        android:layout_alignStart="@+id/storeimg_Edittext"
+        android:paddingRight="10dp"
+        android:background="@drawable/edittext_border"
+        android:gravity="center_vertical"
+        android:textSize="25dp"
+        android:hint="@string/ChooseBranches"
+        android:layoutDirection="rtl"
+        android:maxLines="1" />
+
+</LinearLayout>

@@ -2,41 +2,49 @@ package com.example.unknown.cheaperapp;
 
 import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.unknown.cheaperapp.Classes.AdvertismentClass;
+import com.example.unknown.cheaperapp.Classes.Branch_Class;
 
 import java.util.ArrayList;
 
 public class MakeOfferActivity extends AppCompatActivity {
 
-    ArrayAdapter adapter1;
-    ArrayAdapter adapter2;
-    ArrayAdapter adapter3;
+    ArrayAdapter adapter1,adapter2;
     ArrayList<String> categoriesList;
     ArrayList<String> durationList;
-    ArrayList<String> branchesList;
 
-    Spinner categoriesSpinner;
-    Spinner durationSpinner;
-    Spinner brancheSpinner;
-    ImageView categoriesSpinnerImageView;
-    ImageView durationSpinnerImageView;
-    ImageView brancheSpinnerImageView;
+    Spinner categoriesSpinner,durationSpinner;
 
-    EditText productName_edittext;
-    EditText productDescription_edittext;
-    EditText priceBefore_edittext;
-    EditText priceAfter_edittext;
+    ImageView categoriesSpinnerImageView,durationSpinnerImageView;
+
+    EditText productName_edittext,productDescription_edittext,priceBefore_edittext,priceAfter_edittext;
     Button send_btn;
+
+    ExpandableListView branches_expendablelistview;
+    BranchesExpandableListviewAdapter exapendableAdapter;
+    ArrayList<Branch_Class> branchList;
+
+
+    TextView startDate_textview,endDate_textview;
+    LinearLayout linearLayout ;
+
 
 
     private AdvertismentClass currentAd;
@@ -55,28 +63,93 @@ public class MakeOfferActivity extends AppCompatActivity {
 
         ChooseDuration();
 
+
+        //just dumy data
+
+        branchList= new ArrayList<>();
+        branchList.add(new Branch_Class(1,getString(R.string.Allbranches)));
+        branchList.add(new Branch_Class(1,"المنصورة"));
+        branchList.add(new Branch_Class(1,"اجا"));
+        branchList.add(new Branch_Class(1,"ميت غمر"));
+        branchList.add(new Branch_Class(1,"دكرنس"));
+
+
+        exapendableAdapter = new BranchesExpandableListviewAdapter(branchList,MakeOfferActivity.this);
+
+        branches_expendablelistview.setAdapter(exapendableAdapter);
+        branches_expendablelistview.setDivider(null);
+        branches_expendablelistview.setChildDivider(null);
+        branches_expendablelistview.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                setListViewHeight(parent,groupPosition);
+                return false;
+            }
+        });
+
+
+
+
     }
 
 
     private void ChooseDuration(){
 
         final Dialog dialog = new Dialog(this,R.style.NewDialog);
+        dialog.setContentView(R.layout.calender_layout);
+        final Button btn_ok = dialog.findViewById(R.id.ok_btn);
+        final Button btn_next = dialog.findViewById(R.id.next_btn);
+        final TextView date_textview=dialog.findViewById(R.id.date_textview);
+        final  TextView selectedDate_textview=dialog.findViewById(R.id.selectedDate_textview);
+        final CalendarView calendarView = dialog.findViewById(R.id.calendarView);
+
+        btn_next.setVisibility(View.VISIBLE);
+        btn_ok.setVisibility(View.VISIBLE);
+
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+
+                selectedDate_textview.setText(String.valueOf(year)+"/"+String.valueOf(month)+"/"+String.valueOf(dayOfMonth));
+            }
+        });
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_next.setVisibility(View.GONE);
+                btn_ok.setVisibility(View.VISIBLE);
+                startDate_textview.setText(getString(R.string.StartDate)+selectedDate_textview.getText());
+                date_textview.setText(getString(R.string.EndDate));
+            }
+        });
+
 
         durationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(parent.getItemAtPosition(position).toString()==getString(R.string.StartandEndDate)){
 
+                    date_textview.setText(getString(R.string.StartDate));
+
+                    btn_ok.setVisibility(View.GONE);
+
+                    btn_ok.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            endDate_textview.setText(getString(R.string.EndDate)+selectedDate_textview.getText());
+                            linearLayout.setVisibility(View.VISIBLE);
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialog.show();
                 }
                 else if(parent.getItemAtPosition(position).toString()==getString(R.string.StartDateUntilOfferEnd)){
 
-                    dialog.setContentView(R.layout.calender_layout);
-
-
-
-                    Button ok_btn= dialog.findViewById(R.id.ok_btn);
-
-                    ok_btn.setOnClickListener(new View.OnClickListener() {
+                    btn_ok.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.dismiss();
@@ -114,13 +187,6 @@ public class MakeOfferActivity extends AppCompatActivity {
             }
         });
 
-        brancheSpinnerImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    brancheSpinner.performClick();
-            }
-        });
-
         //this just dumy data for test only
         categoriesList = new ArrayList<>();
         categoriesList.add(getString(R.string.ChooseCategory));
@@ -135,21 +201,12 @@ public class MakeOfferActivity extends AppCompatActivity {
         durationList.add(getString(R.string.StartDateUntilOfferEnd));
 
 
-        branchesList = new ArrayList<>();
-        branchesList.add(getString(R.string.ChooseBranches));
-        branchesList.add(getString(R.string.Allbranches));
-        branchesList.add("المنصورة");
-        branchesList.add("اجا");
-        branchesList.add("ميت غمر");
-
 
         adapter1 = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,categoriesList);
         adapter2 = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,durationList);
-        adapter3 = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,branchesList);
 
         categoriesSpinner.setAdapter(adapter1);
         durationSpinner.setAdapter(adapter2);
-        brancheSpinner.setAdapter(adapter3);
     }
 
     //this method for inflating view elements
@@ -161,16 +218,56 @@ public class MakeOfferActivity extends AppCompatActivity {
         priceAfter_edittext = findViewById(R.id.priceAfter_edittext);
         send_btn = findViewById(R.id.send_btn);
 
+        linearLayout= findViewById(R.id.linear_layout);
+
+        startDate_textview=findViewById(R.id.startDate_textview);
+        endDate_textview=findViewById(R.id.endDate_textview);
 
         categoriesSpinner=findViewById(R.id.category_spinner);
         durationSpinner = findViewById(R.id.offerDuration_spinner);
-        brancheSpinner=findViewById(R.id.branches_spinner);
 
         categoriesSpinnerImageView=findViewById(R.id.selectCategory_spinner_imageview);
         durationSpinnerImageView=findViewById(R.id.selectOfferDuration_spinner_imageview);
-        brancheSpinnerImageView=findViewById(R.id.selectBranches_spinner_imageview);
+
+        branches_expendablelistview = findViewById(R.id.branches_expendablelistview);
 
 
+
+    }
+
+    private void setListViewHeight(ExpandableListView listView,
+                                   int group) {
+        ExpandableListAdapter listAdapter = (ExpandableListAdapter) listView.getExpandableListAdapter();
+        int totalHeight = 0;
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(),
+                View.MeasureSpec.EXACTLY);
+        for (int i = 0; i < listAdapter.getGroupCount(); i++) {
+            View groupItem = listAdapter.getGroupView(i, false, null, listView);
+            groupItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+
+            totalHeight += groupItem.getMeasuredHeight();
+
+            if (((listView.isGroupExpanded(i)) && (i != group))
+                    || ((!listView.isGroupExpanded(i)) && (i == group))) {
+                for (int j = 0; j < listAdapter.getChildrenCount(i); j++) {
+                    View listItem = listAdapter.getChildView(i, j, false, null,
+                            listView);
+                    listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+
+                    totalHeight += listItem.getMeasuredHeight();
+
+                }
+            }
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        int height = totalHeight
+                + (listView.getDividerHeight() * (listAdapter.getGroupCount() - 1));
+        if (height < 10)
+            height = 200;
+        params.height = height;
+        listView.setLayoutParams(params);
+        listView.requestLayout();
 
     }
 

@@ -41,7 +41,7 @@ public class UserAgreementActivity extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////////////
 
 
-        UserAgreementAdapter adapter = new UserAgreementAdapter(this,AgreementHashmap);
+        UserAgreementExpandableListviewAdapter adapter = new UserAgreementExpandableListviewAdapter(this,AgreementHashmap);
 
         userAgreement_expandablelistview.setAdapter(adapter);
 

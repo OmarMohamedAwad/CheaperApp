@@ -10,12 +10,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class UserAgreementAdapter extends BaseExpandableListAdapter {
+public class UserAgreementExpandableListviewAdapter extends BaseExpandableListAdapter {
 
     HashMap<String,ArrayList<String>> itemsGroup;
     Context mcontext;
 
-    public UserAgreementAdapter(Context context, HashMap<String,ArrayList<String>> itemsGroup) {
+    public UserAgreementExpandableListviewAdapter(Context context, HashMap<String,ArrayList<String>> itemsGroup) {
         super();
         this.itemsGroup=itemsGroup;
         mcontext=context;

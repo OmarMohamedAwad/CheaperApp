@@ -16,6 +16,24 @@ public class Branch_Class {
     ArrayList<AdvertismentClass> Advertisments_List;
     public  Branch_Class(){}
 
+
+    public Branch_Class(int ID, String name) {
+        this.ID = ID;
+        Name = name;
+    }
+
+    public Branch_Class(int ID, String name, String phone, String address, String cityName, String lang, String lat, String location, ArrayList<AdvertismentClass> advertisments_List) {
+        this.ID = ID;
+        Name = name;
+        Phone = phone;
+        Address = address;
+        CityName = cityName;
+        Lang = lang;
+        Lat = lat;
+        this.location = location;
+        Advertisments_List = advertisments_List;
+    }
+
     public Branch_Class(String phone, String cityName, String location) {
         Phone = phone;
         CityName = cityName;
