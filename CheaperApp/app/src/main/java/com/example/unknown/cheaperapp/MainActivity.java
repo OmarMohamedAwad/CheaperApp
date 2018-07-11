@@ -44,16 +44,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     // this code to change navigation drawer according to user status (login / logout)
-    private void ChangeNavigation(){
-
-        if(LoginActivity.currentUser==null){
-
-            navigationView.getMenu().clear();
-            navigationView.inflateMenu(R.menu.drawable_nav_items_logout);
-            navigationView.getHeaderView(0).setVisibility(View.GONE);
-            navigationView.setNavigationItemSelectedListener(this);
-        }
-    }
+//    private void ChangeNavigation(){
+//
+//        if(LoginActivity.currentUser==null){
+//
+//            navigationView.getMenu().clear();
+//            navigationView.inflateMenu(R.menu.drawable_nav_items_logout);
+//            navigationView.getHeaderView(0).setVisibility(View.GONE);
+//            navigationView.setNavigationItemSelectedListener(this);
+//        }
+//    }
 
     private void handleNavigationClicks(){
 

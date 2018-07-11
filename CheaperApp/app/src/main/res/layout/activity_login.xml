@@ -18,11 +18,12 @@
 
         <ImageView
             android:id="@+id/logo_imageView"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="4"
             android:layout_gravity="center"
             android:src="@drawable/userpic"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="30dp"
             android:layout_marginTop="35dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:scaleType="fitXY" />
@@ -30,7 +31,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:gravity="center"
             android:layoutDirection="rtl"
             android:textDirection="rtl">
@@ -48,18 +49,15 @@
                 android:singleLine="true"
                 android:textDirection="rtl" />
 
-
-
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:gravity="center"
             android:layoutDirection="rtl"
-            android:textDirection="rtl"
-            android:layout_marginTop="15dp">
+            android:textDirection="rtl">
 
             <EditText
                 android:id="@+id/password_Edittext"
@@ -87,18 +85,18 @@
             android:layout_weight="2"
             android:layout_marginTop="10dp"
             android:foreground="?android:attr/selectableItemBackground"
-            android:gravity="left|center"
-            android:textColor="@color/blue"
+            android:gravity="center"
             android:text="@string/DidYouForgetYourPassword"
+            android:textColor="@color/colorPrimary"
             android:textDirection="ltr" />
 
         <Button
             android:id="@+id/signin_btn"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:layout_marginTop="10dp"
-            android:background="@drawable/mybtn_style"
+            android:background="@color/blue"
             android:fontFamily="sans-serif-medium"
             android:text="@string/SignIn"
             android:textColor="#ffffff"
@@ -120,7 +118,7 @@
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="2"
-                android:background="@color/gray">
+                android:background="#333">
 
             </View>
 
@@ -139,7 +137,7 @@
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="2"
-                android:background="@color/gray">
+                android:background="#333">
 
             </View>
 
@@ -148,7 +146,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="10"
+            android:layout_weight="8"
             android:layout_marginTop="10dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:orientation="vertical"
@@ -156,7 +154,8 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
                 android:layout_gravity="center"
                 android:text="@string/newuser"
                 android:textSize="20dp" />
@@ -169,14 +168,14 @@
                 android:layout_marginTop="15dp">
 
                 <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
                     android:src="@drawable/googleplus" />
 
                 <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/facebook" />
 
             </LinearLayout>
