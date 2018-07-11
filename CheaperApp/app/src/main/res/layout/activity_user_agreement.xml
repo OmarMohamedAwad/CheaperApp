@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserAgreementFragment"
-    >
+    tools:context=".UserAgreementActivity">
 
 
     <LinearLayout
@@ -50,6 +49,7 @@
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
                 android:layout_marginTop="30dp"
+                android:background="@drawable/mybtn_style"
                 android:text="@string/SignIn"/>
 
         </LinearLayout>

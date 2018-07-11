@@ -8,26 +8,22 @@
         android:icon="@drawable/homepage"
         android:title="@string/home" />
     <item
-        android:id="@+id/profile_nav_btn"
-        android:icon="@drawable/com_facebook_profile_picture_blank_portrait"
-        android:title="@string/ProfilePage" />
-    <item
         android:id="@+id/advertiser_nav_btn"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/businessman"
         android:title="@string/SellerData" />
     <item
         android:id="@+id/make_offer_nav_btn"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/megaphone"
         android:title="@string/MakeOffer" />
 
     <item
         android:id="@+id/myAds_nav_btn"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/billboard"
         android:title="@string/MyAds" />
 
     <item
         android:id="@+id/markets_nav_btn"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/store"
         android:title="@string/Markets" />
 
     <item
@@ -36,19 +32,15 @@
         android:title="@string/Categories" />
 
 
-    <item
-        android:id="@+id/notification_offer_nav_btn"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/MakeOffer" />
 
     <item
         android:id="@+id/contactus_nav_btn"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/speechbubble"
         android:title="@string/ContactUs" />
 
     <item
         android:id="@+id/logout_nav_btn"
-        android:icon="@drawable/login"
+        android:icon="@drawable/logout"
         android:title="@string/SignOut" />
 
 </menu>

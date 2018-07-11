@@ -101,16 +101,16 @@
 
     <string name="addres">العنوان وفقا ل Gps</string>
     <string name="LimitedOffer">العرض سارى حتى نفاذ الكمية</string>
-<<<<<<< HEAD
     <string name="StartDateUntilOfferEnd">تاريخ بداية وحتى نفاذ الكمية</string>
     <string name="StartandEndDate">تاريخ بداية وتاريخ نهاية</string>
     <string name="StartDate">تاريخ البداية</string>
     <string name="EndDate">تاريخ النهاية</string>
     <string name="Allbranches">كل الفروع</string>
-=======
     <string name="google_maps_api_key">AIzaSyC6FXmsYsUqwTSIaM_DF5FzPrrj0Jw8DUA</string>
->>>>>>> 376d189c942ee77e3cff456e01276859ee22a763
 
+
+    <string name="SaveChanges">حفظ التغيرات</string>
+    <string name="AddBranch">اضافه فرع</string>
 
     <string-array name="Country">
         <item>المدينه</item>

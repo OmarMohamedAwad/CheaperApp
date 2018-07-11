@@ -14,7 +14,7 @@ public class AdvertiserDataEntery_Activity extends AppCompatActivity {
 
     ImageView GetLocation_btn;
     EditText storeaddress_Edittext;
-    Button btn_conditions;
+    Button conditions_btn;
     Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,8 @@ public class AdvertiserDataEntery_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_advertiser_data_entery_);
         Intent intent = getIntent();
         String address = intent.getStringExtra("address");
+
+        conditions_btn=findViewById(R.id.conditions_btn);
 
         // spiner code
         spinner = (Spinner) findViewById(R.id.spinner2);
@@ -37,6 +39,14 @@ public class AdvertiserDataEntery_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AdvertiserDataEntery_Activity.this, MapActivity.class);
                 startActivity(intent);
+            }
+        });
+
+
+        conditions_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdvertiserDataEntery_Activity.this,UserAgreementActivity.class));
             }
         });
 

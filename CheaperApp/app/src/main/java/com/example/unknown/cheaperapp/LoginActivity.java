@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.example.unknown.cheaperapp.Classes.User_Class;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -27,6 +29,10 @@ import java.util.Arrays;
 public class LoginActivity extends AppCompatActivity {
 
 
+    Button signin_btn;
+
+
+     public static User_Class currentUser;
 
 
 
@@ -41,6 +47,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        signin_btn= findViewById(R.id.signin_btn);
+
+        signin_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(LoginActivity.this,MainActivity.class));
+            }
+        });
 
 
     }

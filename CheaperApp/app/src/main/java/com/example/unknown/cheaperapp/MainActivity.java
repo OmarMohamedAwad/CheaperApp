@@ -8,21 +8,25 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
     DrawerLayout drawerLayout;
-    ActionBarDrawerToggle toggle;
     NavigationView navigationView;
-
-
-
-
-
-
+    EndDrawerToggle toggle;
     Toast mtoast;
+
+    boolean IsSeller=true;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,24 +35,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
 
+
         handleNavigationClicks();
 
-        navigationView.getMenu().clear();
-        navigationView.inflateMenu(R.menu.drawable_nav_items_logout);
+//        ChangeNavigation();
+
+    }
 
 
+    // this code to change navigation drawer according to user status (login / logout)
+    private void ChangeNavigation(){
 
+        if(LoginActivity.currentUser==null){
+
+            navigationView.getMenu().clear();
+            navigationView.inflateMenu(R.menu.drawable_nav_items_logout);
+            navigationView.getHeaderView(0).setVisibility(View.GONE);
+            navigationView.setNavigationItemSelectedListener(this);
+        }
     }
 
     private void handleNavigationClicks(){
 
-        drawerLayout=findViewById(R.id.nav_drawer_layout);
-        toggle = new ActionBarDrawerToggle(this,drawerLayout, R.string.open, R.string.close);
-
-        drawerLayout.addDrawerListener(toggle);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        EndDrawerToggle drawerToggle;
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.nav_drawer_layout);
+        EndDrawerToggle toggle = new EndDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         navigationView = findViewById(R.id.navigation_layout);
         navigationView.setNavigationItemSelectedListener(this);
@@ -58,12 +75,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(toggle.onOptionsItemSelected(item)){
-            return true;
-        }
+        int id = item.getItemId();
+
 
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -78,20 +95,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if(id==R.id.home_nav_btn){
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
-            mtoast = Toast.makeText(this,"Home",Toast.LENGTH_SHORT);
-            mtoast.show();
-        }
-        else if(id==R.id.markets_nav_btn){
-
-            Intent intent = new Intent(MainActivity.this,AdvertiserDataEntery_Activity.class);
+            Intent intent = getIntent();
+            finish();
             startActivity(intent);
         }
-        else if(id==R.id.categories_nav_btn){
+        else if(id==R.id.advertiser_nav_btn){
+
+            if(IsSeller){
+                Intent intent = new Intent(MainActivity.this,AdvertiserData_Activity.class);
+                startActivity(intent);
+            }
+            else {
+                Intent intent = new Intent(MainActivity.this,AdvertiserDataEntery_Activity.class);
+                startActivity(intent);
+            }
+
+
+        }
+        else if(id==R.id.make_offer_nav_btn){
 
             Intent intent = new Intent(MainActivity.this,MakeOfferActivity.class);
             startActivity(intent);
         }
+
 
         return true;
     }

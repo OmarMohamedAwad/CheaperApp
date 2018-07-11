@@ -1,14 +1,9 @@
 package com.example.unknown.cheaperapp;
 
-
 import android.app.Dialog;
-import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ExpandableListView;
@@ -16,11 +11,7 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class UserAgreementFragment extends Fragment {
+public class UserAgreementActivity extends AppCompatActivity {
 
     ExpandableListView userAgreement_expandablelistview;
 
@@ -30,19 +21,12 @@ public class UserAgreementFragment extends Fragment {
 
     HashMap<String ,ArrayList<String>> AgreementHashmap;
 
-
-    public UserAgreementFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_user_agreement, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_agreement);
 
-        GetViewELements(view);
+        GetViewELements();
 
         ArrayList<String> Conditions= new ArrayList<>();
         Conditions.add("يحظر على المتاجر الانشطه التاليه");
@@ -57,7 +41,7 @@ public class UserAgreementFragment extends Fragment {
         /////////////////////////////////////////////////////////////////////////////////
 
 
-        UserAgreementAdapter adapter = new UserAgreementAdapter(getActivity(),AgreementHashmap);
+        UserAgreementAdapter adapter = new UserAgreementAdapter(this,AgreementHashmap);
 
         userAgreement_expandablelistview.setAdapter(adapter);
 
@@ -73,14 +57,12 @@ public class UserAgreementFragment extends Fragment {
 
 //        AddSpaceBetweenItems();
 
-        return view;
     }
-
 
     //this method display dialog to user to confirm that request has been submitted
     private void ConfirmUserAgreement() {
 
-        Dialog dialog = new Dialog(getActivity(),R.style.Theme_Dialog);
+        Dialog dialog = new Dialog(this,R.style.Theme_Dialog);
 
         dialog.setTitle(R.string.SuccessRequest);
 
@@ -94,11 +76,11 @@ public class UserAgreementFragment extends Fragment {
 
 
     //this method for inflating view elements
-    private void GetViewELements(View view) {
+    private void GetViewELements() {
 
-        userAgreement_expandablelistview = view.findViewById(R.id.userAgreement_expandablelistview);
-        userAgreement_checkbox = view.findViewById(R.id.userAgreement_checkbox);
-        sign_btn = view.findViewById(R.id.sign_btn);
+        userAgreement_expandablelistview = findViewById(R.id.userAgreement_expandablelistview);
+        userAgreement_checkbox = findViewById(R.id.userAgreement_checkbox);
+        sign_btn = findViewById(R.id.sign_btn);
 
     }
 
@@ -106,6 +88,4 @@ public class UserAgreementFragment extends Fragment {
     private void AddSpaceBetweenItems(){
         userAgreement_expandablelistview.setDividerHeight(10);
     }
-
-
 }
