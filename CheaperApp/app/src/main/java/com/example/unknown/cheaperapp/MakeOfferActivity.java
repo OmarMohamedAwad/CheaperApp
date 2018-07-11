@@ -103,8 +103,6 @@ public class MakeOfferActivity extends AppCompatActivity {
         final  TextView selectedDate_textview=dialog.findViewById(R.id.selectedDate_textview);
         final CalendarView calendarView = dialog.findViewById(R.id.calendarView);
 
-        btn_next.setVisibility(View.VISIBLE);
-        btn_ok.setVisibility(View.VISIBLE);
 
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -129,6 +127,11 @@ public class MakeOfferActivity extends AppCompatActivity {
         durationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                btn_next.setVisibility(View.VISIBLE);
+                btn_ok.setVisibility(View.VISIBLE);
+
+
                 if(parent.getItemAtPosition(position).toString()==getString(R.string.StartandEndDate)){
 
                     date_textview.setText(getString(R.string.StartDate));
@@ -155,8 +158,14 @@ public class MakeOfferActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     });
+                    btn_next.setVisibility(View.GONE);
+
+
                     dialog.show();
 
+                }
+                else if(parent.getItemAtPosition(position).toString()==getString(R.string.ChooseOfferDuration)){
+                    linearLayout.setVisibility(View.GONE);
                 }
             }
 
