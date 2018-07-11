@@ -139,5 +139,10 @@
     <string name="facebook_app_id">421602441658380</string>
     <string name="fb_login_protocol_scheme">fb421602441658380</string>
 
+    <string name="confirmation">تاكيد</string>
+    <string name="back">رجوع</string>
+    <string name="add">اضافه</string>
+    <string name="save">حفظ التعديلات</string>
+
 
 </resources>

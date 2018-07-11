@@ -129,12 +129,12 @@
             android:gravity="center_horizontal"
             android:layout_height="match_parent">
             <Button
-                android:layout_width="150dp"
-                android:text="@string/add"
+                android:layout_width="wrap_content"
+                android:text="@string/save"
                 android:background="@drawable/btnbackground"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
-                 android:textSize="20dp"
+                android:textSize="20dp"
                 android:layout_marginTop="80dp"
                 android:id="@+id/btn_conditions"
                 android:textColor="#fff"
