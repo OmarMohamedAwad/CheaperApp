@@ -87,6 +87,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(MainActivity.this,AdvertiserDataEntery_Activity.class);
             startActivity(intent);
         }
+        else if(id==R.id.categories_nav_btn){
+
+            Intent intent = new Intent(MainActivity.this,MakeOfferActivity.class);
+            startActivity(intent);
+        }
 
         return true;
     }

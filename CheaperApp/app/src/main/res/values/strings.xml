@@ -50,7 +50,12 @@
     <string name="product_name">اسم المنتج</string>
     <string name="product_image">صورة المنتج</string>
     <string name="store_name">اسم المتجر</string>
-    <string name="description">الوسف</string>
+    <string name="description">الوصف</string>
+    <string name="ChooseCategory">اختر القسم</string>
+    <string name="ChooseOfferDuration">فترة العرض</string>
+    <string name="ChooseBranches">افرع العرض</string>
+    <string name="Ok">تم</string>
+
 
     <string name="title_activity_navigation">navigation</string>
 
@@ -80,6 +85,8 @@
     <string name="product_descriptions">المواصفات</string>
     <string name="Price_Bfore">السعر قبل العرض</string>
     <string name="Price_Aftter">السعر بعد العرض</string>
+    <string name="Price_Bfore_offer">السعر قبل الخصم</string>
+    <string name="Price_Aftter_offer">السعر بعد الخصم</string>
     <string name="SorrySigninFirstToCall">عفوا قم بتسجيل الدخول حتى يمكنك الاتصال</string>
     <string name="NewAccount">حساب جديد</string>
     <!-- Advertiser data ENTRY-->
@@ -88,6 +95,11 @@
     <string name="storeaddres">عنوان المتجر</string>
     <string name="addres">العنوان وفقا ل Gps</string>
     <string name="LimitedOffer">العرض سارى حتى نفاذ الكمية</string>
+    <string name="StartDateUntilOfferEnd">تاريخ بداية وحتى نفاذ الكمية</string>
+    <string name="StartandEndDate">تاريخ بداية وتاريخ نهاية</string>
+    <string name="StartDate">تاريخ البداية</string>
+    <string name="EndDate">تاريخ النهاية</string>
+    <string name="Allbranches">كل الفروع</string>
 
 
     <string-array name="Country">

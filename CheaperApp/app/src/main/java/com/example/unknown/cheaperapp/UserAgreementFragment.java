@@ -3,6 +3,7 @@ package com.example.unknown.cheaperapp;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -79,16 +80,15 @@ public class UserAgreementFragment extends Fragment {
     //this method display dialog to user to confirm that request has been submitted
     private void ConfirmUserAgreement() {
 
-//        Dialog dialog = new Dialog(getActivity(),R.style.Theme_Dialog);
-//
-//        dialog.setTitle(R.string.SuccessRequest);
-//
-//        dialog.setContentView(R.layout.special_confirmation_dilaog_layout);
-//
-//        dialog.show();
+        Dialog dialog = new Dialog(getActivity(),R.style.Theme_Dialog);
 
-        Intent intent = new Intent(getActivity(),LoginActivity.class);
-        startActivity(intent);
+        dialog.setTitle(R.string.SuccessRequest);
+
+        dialog.setContentView(R.layout.special_confirmation_dilaog_layout);
+
+
+        dialog.show();
+
 
     }
 
