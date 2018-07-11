@@ -16,13 +16,15 @@
 
     <string name="Or">أو</string>
     <string name="ContinueWithFacebook">متابعة بحساب فيسبوك</string>
-    <string name="Name">الاسم</string>
+    <string name="Name"> اسم المستخدم</string>
+    <string name="MailOrPhon">رقم الهاتف أو البريد الإلكتروني </string>
     <string name="Password">كلمة المرور</string>
     <string name="DidYouForgetYourPassword">هل نسيت كلمة السر ؟</string>
     <string name="Enter">دخول</string>
-    <string name="newuser">تسجيل بواسطة</string>
+    <string name="newuser">متابعة بحساب</string>
 
     <string name="AreYouNewUser">هل أنت جديد على أرخصلى ؟</string>
+    <string name="DoYouHaveAccount">هل لديك حساب بالفعل ؟</string>
     <string name="CreateNewAccount">إنشاء حساب</string>
     <string name="title_activity_login2">Sign in</string>
     <string name="Email">البريد الإلكترونى</string>
@@ -91,15 +93,23 @@
     <string name="NewAccount">حساب جديد</string>
     <!-- Advertiser data ENTRY-->
     <string name="storename">اسم المتجر</string>
+    <string name="branchname">اسم الفرع</string>
+
     <string name="storeimg">واجهة المتجر</string>
     <string name="storeaddres">عنوان المتجر</string>
+    <string name="branchaddres">عنوان الفرع </string>
+
     <string name="addres">العنوان وفقا ل Gps</string>
     <string name="LimitedOffer">العرض سارى حتى نفاذ الكمية</string>
+<<<<<<< HEAD
     <string name="StartDateUntilOfferEnd">تاريخ بداية وحتى نفاذ الكمية</string>
     <string name="StartandEndDate">تاريخ بداية وتاريخ نهاية</string>
     <string name="StartDate">تاريخ البداية</string>
     <string name="EndDate">تاريخ النهاية</string>
     <string name="Allbranches">كل الفروع</string>
+=======
+    <string name="google_maps_api_key">AIzaSyC6FXmsYsUqwTSIaM_DF5FzPrrj0Jw8DUA</string>
+>>>>>>> 376d189c942ee77e3cff456e01276859ee22a763
 
 
     <string-array name="Country">
