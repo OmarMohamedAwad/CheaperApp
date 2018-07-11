@@ -12,7 +12,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/fragment_container">
 
     </FrameLayout>
@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
+        android:layout_marginTop="?attr/actionBarSize"
         app:headerLayout="@layout/navigation_drawer_header_layout"
         app:menu="@menu/drawable_nav_items_login">
 

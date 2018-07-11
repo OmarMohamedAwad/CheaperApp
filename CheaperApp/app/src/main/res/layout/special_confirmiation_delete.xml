@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+   android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/dialogstyle"
+
+        android:layout_height="150dp">
+<TextView
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:text="هل انت متاكد من حذف هذا الفرع"
+    android:textColor="#fff"
+    android:textSize="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
+    android:layout_height="wrap_content"
+    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/mybtn_style2"
+            android:text="@string/confirmation"
+            android:id="@+id/onfirm_delete_btm"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"
+            tools:ignore="Suspicious0dp" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/mybtn_style2"
+            android:text="@string/back"
+            android:id="@+id/back_btn"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"
+            tools:ignore="Suspicious0dp" />
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

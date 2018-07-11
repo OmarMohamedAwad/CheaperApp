@@ -36,6 +36,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:src="@drawable/ic_edit_black_24dp"
+                android:id="@+id/edit_btn"
                 android:layout_height="30dp" />
             <TextView
                 android:layout_width="0dp"
@@ -93,6 +94,7 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:id="@+id/delete_btn"
                 android:src="@drawable/ic_delete_black_24dp"
                 android:layout_height="30dp" />
 
