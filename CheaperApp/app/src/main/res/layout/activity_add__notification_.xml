@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".Activity.Add_Notification_Activity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/containerlayout"
+    android:layout_height="match_parent">
+    <!--actionbar-->
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:foregroundGravity="right"
+            android:textAlignment="viewEnd"
+            android:layout_height="?attr/actionBarSize"
+
+            android:background="?attr/colorPrimary"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/notification"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/Addnotification"
+                android:textColor="#fff"
+                android:layout_gravity="center"
+
+                android:textSize="20dp"
+                android:layout_height="wrap_content" />
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+    <!--end actionbar-->
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textColor="@color/Red"
+        android:textSize="20dp"
+        android:paddingBottom="50dp"
+        android:paddingTop="50dp"
+        android:text="@string/Notification_Text"
+        android:layout_height="wrap_content" />
+    <!-- Input_EditText-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittext_border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ChooseDebartment_edit_text"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="50dp"
+                android:paddingRight="10dp"
+                android:background="#00ffffff"
+                android:hint="@string/choosedepartment"
+                android:inputType="text"
+                android:layoutDirection="rtl"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittext_border"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/productName_spinner_btn"
+                android:src="@drawable/ic_keyboard_arrow_down_black_24dp" />
+
+            <Spinner
+                android:id="@+id/productName_spinner"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_weight="4"
+                android:paddingRight="10dp"
+                android:background="@android:color/transparent"
+                android:spinnerMode="dropdown" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+    <!-- end Input_EditText-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/send_btn"
+            android:layout_width="150dp"
+            android:text="@string/sendnotification"
+            android:background="@drawable/mybtn_style"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+</ScrollView>

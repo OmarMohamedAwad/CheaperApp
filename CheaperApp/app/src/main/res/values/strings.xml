@@ -144,5 +144,13 @@
     <string name="add">اضافه</string>
     <string name="save">حفظ التعديلات</string>
 
+    <!--Add Notification Layout-->
+    <string name="Addnotification">طلب اشعار بتوفر العرض</string>
+    <string name="choosedepartment">اختر القسم</string>
+    <string name="Notification_Text">من فضلك قم بادخال المنتجات التى تود شرائها عند عمل عروض عليهاليأتيك إشعار عند توافرها على التطبيق</string>
+    <string name="sendnotification">إرسال</string>
+    <string name="productname">اسم المنتج</string>
+    <string name="send_success">تم ارسال طلبك بنجاح</string>
+    <string name="send_fail">فشل الارسال</string>
 
 </resources>
