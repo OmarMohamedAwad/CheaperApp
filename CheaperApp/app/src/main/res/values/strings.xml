@@ -153,4 +153,11 @@
     <string name="send_success">تم ارسال طلبك بنجاح</string>
     <string name="send_fail">فشل الارسال</string>
 
+    <!--MY ADVIRTESMENT-->
+    <string name="current">الحاليه</string>
+    <string name="previous">السابقه</string>
+    <string name="endadd">إنهاء الاعلان</string>
+    <string name="showadd">اظهار الاعلان</string>
+
+
 </resources>

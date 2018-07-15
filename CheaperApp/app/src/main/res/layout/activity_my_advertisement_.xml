@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MyAdvertisement_Activity">
+    <!--actionbar-->
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:foregroundGravity="right"
+            android:textAlignment="viewEnd"
+            android:layout_height="?attr/actionBarSize"
+
+            android:background="?attr/colorPrimary"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/notification"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/Addnotification"
+                android:textColor="#fff"
+                android:layout_gravity="center"
+
+                android:textSize="20dp"
+                android:layout_height="wrap_content" />
+        </android.support.v7.widget.Toolbar>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            app:tabSelectedTextColor="#f4e3e3"
+            app:tabTextColor="#fff"
+            android:layout_height="50dp">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabAllAds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/current" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/tabTodayAds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/previous" />
+
+        </android.support.design.widget.TabLayout>
+    </android.support.design.widget.AppBarLayout>
+    <!--end actionbar-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+</LinearLayout>
