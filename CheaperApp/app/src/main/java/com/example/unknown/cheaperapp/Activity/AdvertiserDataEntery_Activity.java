@@ -1,4 +1,4 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import com.example.unknown.cheaperapp.R;
 
 public class AdvertiserDataEntery_Activity extends AppCompatActivity {
 

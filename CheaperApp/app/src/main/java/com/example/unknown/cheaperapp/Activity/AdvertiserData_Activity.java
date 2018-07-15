@@ -1,7 +1,7 @@
 
 
 
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Activity;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -11,12 +11,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.unknown.cheaperapp.Adapter.BranchListViewAdapter;
 import com.example.unknown.cheaperapp.Classes.Branch_Class;
+import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;
 

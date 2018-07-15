@@ -1,4 +1,4 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Activity;
 
 import android.Manifest;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.unknown.cheaperapp.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;

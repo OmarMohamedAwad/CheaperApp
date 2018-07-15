@@ -1,7 +1,6 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Activity;
 
 import android.app.Dialog;
-import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,8 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.unknown.cheaperapp.Adapter.BranchesExpandableListviewAdapter;
 import com.example.unknown.cheaperapp.Classes.AdvertismentClass;
 import com.example.unknown.cheaperapp.Classes.Branch_Class;
+import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;
 

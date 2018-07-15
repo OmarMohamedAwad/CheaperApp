@@ -1,4 +1,4 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Fragment;
 
 
 import android.os.Bundle;
@@ -14,7 +14,9 @@ import android.widget.AbsListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.unknown.cheaperapp.Adapter.AdsRecyclerviewaAdapter;
 import com.example.unknown.cheaperapp.Classes.AdvertismentClass;
+import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;
 
@@ -22,19 +24,19 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapter.RecyclerviewClickListenerInterface {
+public class AllAdsFragment extends Fragment implements AdsRecyclerviewaAdapter.RecyclerviewClickListenerInterface {
 
     RecyclerView recyclerView;
     AdsRecyclerviewaAdapter adapter;
     ArrayList<AdvertismentClass> adsList;
     GridLayoutManager layoutManager;
 
+    ProgressBar progressBar ;
     boolean isScrolling=false;
     int totalItems,currentItems,scrolledOutItems;
-    ProgressBar progressBar;
-    SwipeRefreshLayout todaysAds_swiperefreshlayout;
+    SwipeRefreshLayout allAds_swiperefreshlayout;
 
-    public TodaysAdsFragment() {
+    public AllAdsFragment() {
         // Required empty public constructor
     }
 
@@ -43,11 +45,13 @@ public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapt
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_todays_ads, container, false);
+        View view= inflater.inflate(R.layout.fragment_all_ads, container, false);
 
-        progressBar = view.findViewById(R.id.todaysAds_progressBar);
-        todaysAds_swiperefreshlayout=view.findViewById(R.id.todaysAds_swiperefreshlayout);
 
+        progressBar=view.findViewById(R.id.allAds_progressBar);
+        allAds_swiperefreshlayout=view.findViewById(R.id.allAds_swiperefreshlayout);
+
+        ///jsut dumy data for test
 
         adsList = new ArrayList<>();
         adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
@@ -58,17 +62,24 @@ public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapt
         adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
         adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
         adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
+        adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
+        adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
+        adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
+        adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
+        adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
+        adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
+
 
         ///
+
+
 
 
         adapter = new AdsRecyclerviewaAdapter(adsList, this);
 
         layoutManager = new GridLayoutManager(getActivity(),2);
 
-
-        recyclerView=view.findViewById(R.id.todaysAds_recyclerview);
-
+        recyclerView=view.findViewById(R.id.allAds_recyclerview);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -84,13 +95,13 @@ public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapt
 
     @Override
     public void OnItemClickListener(int position) {
-
-        Toast.makeText(getContext(),"Item Clicked",Toast.LENGTH_SHORT).show();
+       Toast.makeText(getContext(),"Item Selected", Toast.LENGTH_SHORT).show();
     }
 
 
     //this Method for handling loading more data into recyclerview
     private  void HandleLoadingAds(){
+
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -113,18 +124,17 @@ public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapt
                 if(isScrolling==true&&totalItems==(currentItems+scrolledOutItems)){
 
                     isScrolling=false;
-                    loadMoreData();
 
+                    loadMoreData();
                 }
             }
         });
-
     }
 
     //this Method for handling refreshing data into recyclerview
     private void RefreshData(){
 
-        todaysAds_swiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        allAds_swiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 
@@ -148,8 +158,7 @@ public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapt
 
                         adapter.notifyDataSetChanged();
 
-                        todaysAds_swiperefreshlayout.setRefreshing(false);
-
+                        allAds_swiperefreshlayout.setRefreshing(false);
                     }
                 },3000);
 
@@ -157,8 +166,8 @@ public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapt
 
             }
         });
-
     }
+
 
     //this method for Loading More data into recyclerview
     private void loadMoreData(){
@@ -172,18 +181,17 @@ public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapt
             public void run() {
 
                 adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
-                adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
-                adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
+                adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",true,"Adidas"));
+                adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",true,"Adidas"));
                 adsList.add(new AdvertismentClass(1,"Shoe",1000,800,"10/8/2018","30/10/2018",false,"Adidas"));
 
-
-                adapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.GONE);
 
-
+                adapter.notifyDataSetChanged();
             }
         },3000);
 
     }
+
 
 }

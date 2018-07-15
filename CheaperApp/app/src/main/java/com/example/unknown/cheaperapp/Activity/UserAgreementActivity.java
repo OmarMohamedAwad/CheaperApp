@@ -1,4 +1,4 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Activity;
 
 import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ExpandableListView;
+
+import com.example.unknown.cheaperapp.R;
+import com.example.unknown.cheaperapp.Adapter.UserAgreementExpandableListviewAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

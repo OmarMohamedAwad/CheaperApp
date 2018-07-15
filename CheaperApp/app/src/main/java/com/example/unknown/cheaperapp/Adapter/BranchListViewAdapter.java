@@ -1,4 +1,4 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.unknown.cheaperapp.Classes.Branch_Class;
+import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;
 

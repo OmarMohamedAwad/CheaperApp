@@ -1,4 +1,4 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Fragment;
 
 
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.unknown.cheaperapp.Adapter.AdsViewPagerAdapter;
 import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;

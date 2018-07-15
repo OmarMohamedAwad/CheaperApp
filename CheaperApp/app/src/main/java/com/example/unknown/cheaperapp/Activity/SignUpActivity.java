@@ -1,7 +1,9 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.unknown.cheaperapp.R;
 
 public class SignUpActivity extends AppCompatActivity {
 

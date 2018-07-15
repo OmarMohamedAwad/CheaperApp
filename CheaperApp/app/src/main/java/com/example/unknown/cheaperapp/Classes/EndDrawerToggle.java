@@ -1,4 +1,4 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Classes;
 
 import android.app.Activity;
 import android.support.v4.view.GravityCompat;
@@ -7,6 +7,8 @@ import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import com.example.unknown.cheaperapp.R;
 
 public class EndDrawerToggle implements DrawerLayout.DrawerListener {
 

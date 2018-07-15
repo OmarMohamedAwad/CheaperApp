@@ -1,10 +1,12 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.unknown.cheaperapp.R;
 
 public class AddBranch_Activity extends AppCompatActivity {
 ImageView GetLocation_btn;

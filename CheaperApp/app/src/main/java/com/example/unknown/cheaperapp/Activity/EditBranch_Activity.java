@@ -1,7 +1,9 @@
-package com.example.unknown.cheaperapp;
+package com.example.unknown.cheaperapp.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.unknown.cheaperapp.R;
 
 public class EditBranch_Activity extends AppCompatActivity {
 
