@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eaeaea"
+
+
     tools:context=".Activity.AdDetailsActivity"
     android:orientation="vertical"
     android:fillViewport="true">
@@ -16,73 +19,158 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/imageSlider_viewpager"
             android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:background="#fff"
             android:layout_height="250dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layoutDirection="rtl"
             android:orientation="vertical"
+            android:background="#fff"
+            android:layout_margin="5dp"
             android:paddingLeft="10dp"
             android:paddingRight="15dp"
             android:paddingTop="5dp">
 
-            <TextView
-                android:id="@+id/categoryName_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:inputType="text"
-                android:textSize="12dp"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="@string/categoryName" />
 
-            <TextView
-                android:id="@+id/productName_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="@string/productName"
-                android:textAlignment="center"
-                android:textSize="25dp" />
+            <ImageView
+                android:layout_width="30dp"
+                android:src="@drawable/heart"
+                android:layout_gravity="left"
+                android:layout_margin="3dp"
+                android:layout_height="30dp" />
+
+
+            <!--row0-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="3"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="حذاء اديدس سبرينج بلاد"
+                    android:id="@+id/categoryName_textview"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:text="@string/categoryName"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <!--row1-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="3"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="حذاء اديدس سبرينج بلاد"
+                    android:id="@+id/productName_textview"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:text="@string/Product"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!--second row-->
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layoutDirection="rtl"
-                android:orientation="horizontal">
-
+                android:weightSum="3"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
                 <TextView
-                    android:id="@+id/pricePreOffer_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="30dp"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="@string/Price_Bfore"
-                    android:textAlignment="center"
-                    android:textSize="20dp" />
-
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="مول العرب"
+                    android:id="@+id/sellerName_textview"
+                    android:layout_height="wrap_content" />
                 <TextView
-                    android:id="@+id/priceAfterOffer_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="@string/Price_Aftter"
-                    android:textAlignment="center"
-                    android:textSize="20dp" />
-
-
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:text="@string/store"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
+
+            <!--third row-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="3"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="150جنيه"
+                    android:id="@+id/pricePreOffer_textview"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:text="@string/Price_Bfore"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <!-- 4 row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="3"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:text="100جنيه"
+                    android:id="@+id/priceAfterOffer_textview"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:text="@string/Price_Aftter"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layoutDirection="rtl"
+            android:background="#fff"
+            android:paddingBottom="40dp"
+            android:layout_height="wrap_content">
 
 
             <TextView
@@ -96,50 +184,63 @@
                 android:text="@string/description"
                 android:textAlignment="center"
                 android:textSize="25dp" />
-
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/description_textview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:inputType="textMultiLine"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:background="@drawable/borderdescribtion"
                 android:text="@string/productDescription"
                 android:textAlignment="center"
                 android:textSize="20dp" />
 
+    <ImageView
+        android:id="@+id/more_btn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:background="#00ffffff"
+        android:src="@drawable/more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:weightSum="3"
+            android:background="@drawable/spinner_border"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="30dp"
+
+
+            <Spinner
+                android:id="@+id/branches_spinner"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:textAlignment="center"
                 android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/sellerName_textview"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="@string/sellerName"
-                    android:textAlignment="center"
-                    android:textSize="20dp" />
-
-                <Spinner
-                    android:id="@+id/branches_spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="35dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/btnbackground"></Spinner>
-
-
-            </LinearLayout>
+                android:layout_marginTop="5dp"
+                android:layout_weight="2"
+               ></Spinner>
 
 
         </LinearLayout>
+
+
     </LinearLayout>
 
 

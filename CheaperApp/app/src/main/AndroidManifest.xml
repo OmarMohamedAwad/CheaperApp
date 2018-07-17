@@ -43,9 +43,11 @@
         <activity android:name=".Activity.AdvertiserData_Activity" />
         <activity android:name=".Activity.AddBranch_Activity" />
         <activity android:name=".Activity.UserAgreementActivity" />
+        <activity android:name=".Activity.AdDetailsActivity" />
         <activity android:name=".Activity.EditBranch_Activity" />
         <activity android:name=".Activity.Add_Notification_Activity" />
-        <activity android:name=".Activity.MyAdvertisement_Activity"></activity>
+        <activity android:name=".Activity.MyAdvertisement_Activity" />
+        <activity android:name=".Activity.More_Describtion_activity"></activity>
     </application>
 
 </manifest>

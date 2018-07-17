@@ -163,6 +163,7 @@
     <string name="previous">السابقه</string>
     <string name="endadd">إنهاء الاعلان</string>
     <string name="showadd">اظهار الاعلان</string>
+    <string name="product_description">وصف المنتج</string>
 
 
 </resources>

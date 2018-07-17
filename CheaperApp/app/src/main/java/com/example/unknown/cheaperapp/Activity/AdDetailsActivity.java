@@ -1,9 +1,12 @@
 package com.example.unknown.cheaperapp.Activity;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -22,11 +25,12 @@ public class AdDetailsActivity extends AppCompatActivity {
     ArrayList<Images_Class> imageList;
     ImageSliderAdapter sliderAdapter;
     AdvertismentClass currentAd;
-
+    ImageView moredescribtion_btn;
     TextView categoryName_textview,productName_textview,pricePreOffer_textview,priceAfterOffer_textview,description_textview
              ,sellerName_textview;
 
     BranchesSpinnerAdapter spinnerAdapter;
+    String description;
     Spinner branches_spinner;
 
     @Override
@@ -52,6 +56,17 @@ public class AdDetailsActivity extends AppCompatActivity {
 
         branches_spinner.setAdapter(spinnerAdapter);
 
+        // for more describtion
+        moredescribtion_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                description=description_textview.getText().toString();
+                Intent i = new Intent(AdDetailsActivity.this, More_Describtion_activity.class);
+                String strName = null;
+                i.putExtra("description", description);
+                startActivity(i);
+            }
+        });
 
     }
 
@@ -64,7 +79,7 @@ public class AdDetailsActivity extends AppCompatActivity {
         sellerName_textview=findViewById(R.id.sellerName_textview);
         imageSlider_viewpager=findViewById(R.id.imageSlider_viewpager);
         branches_spinner=findViewById(R.id.branches_spinner);
-
+        moredescribtion_btn=findViewById(R.id.more_btn);
     }
 
 
