@@ -20,6 +20,7 @@ public class AdvertismentClass {
 
     int SellerID;
     String SellerName;
+    String CategoryName;
 
     ArrayList<Images_Class>Images;
     ArrayList<Branch_Class>AdvertisementBranchs;
@@ -67,6 +68,14 @@ public class AdvertismentClass {
         IsLimited = isLimited;
         IsActive = isActive;
         CategoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return CategoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        CategoryName = categoryName;
     }
 
     public int getID() {

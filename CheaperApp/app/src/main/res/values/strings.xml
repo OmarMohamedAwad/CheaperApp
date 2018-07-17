@@ -144,6 +144,11 @@
     <string name="add">اضافه</string>
     <string name="save">حفظ التعديلات</string>
 
+    <string name="categoryName">اسم القسم</string>
+    <string name="productName">اسم المنتج</string>
+    <string name="sellerName">اسم التاجر</string>
+    <string name="productDescription">يوجد هنا وصف للنتج المعروض فى الاعلان الحالى</string>
+
     <!--Add Notification Layout-->
     <string name="Addnotification">طلب اشعار بتوفر العرض</string>
     <string name="choosedepartment">اختر القسم</string>

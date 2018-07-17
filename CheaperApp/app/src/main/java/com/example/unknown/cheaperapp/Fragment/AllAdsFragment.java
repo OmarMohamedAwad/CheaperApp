@@ -1,6 +1,7 @@
 package com.example.unknown.cheaperapp.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.AbsListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.unknown.cheaperapp.Activity.AdDetailsActivity;
 import com.example.unknown.cheaperapp.Adapter.AdsRecyclerviewaAdapter;
 import com.example.unknown.cheaperapp.Classes.AdvertismentClass;
 import com.example.unknown.cheaperapp.R;
@@ -95,7 +97,7 @@ public class AllAdsFragment extends Fragment implements AdsRecyclerviewaAdapter.
 
     @Override
     public void OnItemClickListener(int position) {
-       Toast.makeText(getContext(),"Item Selected", Toast.LENGTH_SHORT).show();
+       startActivity(new Intent(getActivity(), AdDetailsActivity.class));
     }
 
 
