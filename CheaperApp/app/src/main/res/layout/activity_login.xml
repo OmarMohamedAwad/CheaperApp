@@ -4,41 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".Activity.LoginActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:weightSum="9"
+    android:layout_height="match_parent">
+
+    <!--start image field-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_weight="3"
+    android:gravity="center"
+    android:layout_height="0dp">
+
+    <ImageView
+        android:id="@+id/logo_imageView"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/userpic"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:scaleType="fitXY" />
+
+</LinearLayout>
+    <!--end image field-->
+
+    <!--start input field-->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="22"
-        android:gravity="center_horizontal"
+        android:layout_weight="3"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
-
-
-        <ImageView
-            android:id="@+id/logo_imageView"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_gravity="center"
-            android:src="@drawable/userpic"
-            android:layout_marginBottom="50dp"
-            android:layout_marginTop="35dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:scaleType="fitXY" />
-
+        android:layout_height="0dp">
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:gravity="center"
+            android:layout_height="40dp"
             android:layoutDirection="rtl"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:textDirection="rtl">
 
             <EditText
                 android:id="@+id/mailOrPhon_Edittext"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
                 android:drawablePadding="5dp"
                 android:drawableRight="@drawable/mail"
                 android:hint="@string/MailOrPhon"
@@ -52,19 +62,21 @@
 
         </android.support.design.widget.TextInputLayout>
 
+
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:gravity="center"
+            android:layout_height="40dp"
             android:layoutDirection="rtl"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:textDirection="rtl"
             android:layout_marginTop="15dp">
 
             <EditText
                 android:id="@+id/password_Edittext"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
                 android:drawablePadding="5dp"
                 android:drawableRight="@drawable/password"
                 android:hint="@string/Password"
@@ -80,11 +92,11 @@
         </android.support.design.widget.TextInputLayout>
 
 
+
         <TextView
             android:id="@+id/forgetPassword_textView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:gravity="left|center"
@@ -92,120 +104,137 @@
             android:text="@string/DidYouForgetYourPassword"
             android:textDirection="ltr" />
 
-        <Button
-            android:id="@+id/signin_btn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/mybtn_style"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/SignIn"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:gravity="bottom"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/signin_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:layout_marginTop="20dp"
-            android:gravity="center_horizontal"
-            android:layoutDirection="rtl"
-            android:orientation="horizontal"
-            android:weightSum="5">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/mybtn_style"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/SignIn"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="2"
-                android:background="@color/gray">
+</LinearLayout>
 
-            </View>
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/Or"
-
-                />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="2"
-                android:background="@color/gray">
-
-            </View>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:layout_marginTop="10dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:orientation="vertical"
-            android:paddingBottom="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/newuser"
-                android:textSize="20dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginRight="30dp"
-                    android:src="@drawable/googleplus" />
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:src="@drawable/facebook" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layoutDirection="rtl">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/AreYouNewUser" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/CreateNewAccount"
-                    android:textColor="@color/colorPrimary" />
-
-            </LinearLayout>
-
-        </LinearLayout>
 
 
     </LinearLayout>
 
+    <!--end input field-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_weight="3"
+    android:orientation="vertical"
+    android:layout_height="0dp">
+
+    <!--space field-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="2"
+            android:background="@color/gray">
+
+        </View>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/Or"
+
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="2"
+            android:background="@color/gray">
+
+        </View>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/newuser"
+        android:textSize="20dp" />
+
+
+    <!--fb google field-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/googleplus" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/facebook" />
+
+    </LinearLayout>
+
+
+    <!--new user  field-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="bottom"
+        android:paddingBottom="20dp"
+        android:layoutDirection="rtl">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/AreYouNewUser" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CreateNewAccount"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>
 </ScrollView>
