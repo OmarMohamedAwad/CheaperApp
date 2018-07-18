@@ -1,9 +1,16 @@
 package com.example.unknown.cheaperapp.Activity;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -15,6 +22,7 @@ import com.example.unknown.cheaperapp.Classes.Images_Class;
 import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class AdDetailsActivity extends AppCompatActivity {
 
@@ -22,12 +30,17 @@ public class AdDetailsActivity extends AppCompatActivity {
     ArrayList<Images_Class> imageList;
     ImageSliderAdapter sliderAdapter;
     AdvertismentClass currentAd;
-
+    Button moredescribtion_btn;
     TextView categoryName_textview,productName_textview,pricePreOffer_textview,priceAfterOffer_textview,description_textview
              ,sellerName_textview;
-
+    int state;
     BranchesSpinnerAdapter spinnerAdapter;
+    String description;
     Spinner branches_spinner;
+    //Dialog btns,txt
+    TextView colse_txt,storename_txt;
+    Button phone_number_btn,getlocation_btn;
+    double longitude,latitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +65,22 @@ public class AdDetailsActivity extends AppCompatActivity {
 
         branches_spinner.setAdapter(spinnerAdapter);
 
+        // for more describtion
+        moredescribtion_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                description=description_textview.getText().toString();
+                Intent i = new Intent(AdDetailsActivity.this, More_Describtion_activity.class);
+                String strName = null;
+                i.putExtra("description", description);
+                startActivity(i);
+            }
+        });
+
+        //handle spinner
+        OnSpinnerSelect();
+
+
 
     }
 
@@ -64,6 +93,7 @@ public class AdDetailsActivity extends AppCompatActivity {
         sellerName_textview=findViewById(R.id.sellerName_textview);
         imageSlider_viewpager=findViewById(R.id.imageSlider_viewpager);
         branches_spinner=findViewById(R.id.branches_spinner);
+        moredescribtion_btn=findViewById(R.id.more_btn);
 
     }
 
@@ -97,4 +127,66 @@ public class AdDetailsActivity extends AppCompatActivity {
         sellerName_textview.setText(currentAd.getSellerName());
 
     }
+    public  void OnSpinnerSelect(){
+
+
+        branches_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+
+                // dialog set
+                final Dialog dialog = new Dialog(AdDetailsActivity.this, R.style.NewDialog);
+                dialog.setContentView(R.layout.dialog_location_phonenumber);
+                dialog.setCancelable(false);
+                dialog.show();
+
+                //get elments
+                colse_txt=(TextView)dialog.findViewById(R.id.colse_txt);
+                storename_txt=(TextView)dialog.findViewById(R.id.storename_txt);
+                getlocation_btn=(Button)dialog.findViewById(R.id.store_location_btn);
+                phone_number_btn=(Button)dialog.findViewById(R.id.store_number_btn);
+                // end
+
+
+                // store name
+                storename_txt.setText(" بيانات الفرع");
+                //close_btn
+                colse_txt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                phone_number_btn.setText("0109941240");
+                //open store location
+                getlocation_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String uri = String.format(Locale.ENGLISH, "geo:%f,%f", latitude, longitude);
+                        latitude=30.0444;longitude=31.2357;
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                        getApplicationContext().startActivity(intent);
+                    }
+                });
+                // phone number
+                phone_number_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(Intent.ACTION_DIAL);
+                        String p = "tel:" + "01099441240";
+                        i.setData(Uri.parse(p));
+                        startActivity(i);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+    }
+
 }

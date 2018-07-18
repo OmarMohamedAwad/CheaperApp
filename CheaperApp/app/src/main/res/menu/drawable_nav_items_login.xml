@@ -32,6 +32,10 @@
         android:title="@string/Categories" />
 
 
+    <item
+        android:id="@+id/addnotification_nav_btn"
+        android:icon="@drawable/newspaper"
+        android:title="@string/addnotification" />
 
     <item
         android:id="@+id/contactus_nav_btn"

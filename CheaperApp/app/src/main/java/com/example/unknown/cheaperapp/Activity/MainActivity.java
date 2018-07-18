@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onStart() {
         super.onStart();
+
+
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
     }
 
@@ -123,6 +125,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             Intent intent = new Intent(MainActivity.this,Categories_Stores_Activity.class);
             intent.putExtra("type",1);
+            startActivity(intent);
+        }else if(id==R.id.myAds_nav_btn){
+
+            Intent intent = new Intent(MainActivity.this,MyAdvertisement_Activity.class);
+            startActivity(intent);
+        }
+        else if(id==R.id.addnotification_nav_btn){
+            Intent intent = new Intent(MainActivity.this,Add_Notification_Activity.class);
             startActivity(intent);
         }
         else if(id==R.id.markets_nav_btn){
