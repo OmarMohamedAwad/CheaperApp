@@ -4,170 +4,196 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.LoginActivity"
-    android:fillViewport="true">
-
+    android:fillViewport="true"
+    tools:context=".Activity.LoginActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="22"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:weightSum="9"
+        android:layout_height="match_parent">
 
-
-        <ImageView
-            android:id="@+id/logo_imageView"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_gravity="center"
-            android:src="@drawable/userpic"
-            android:layout_marginBottom="50dp"
-            android:layout_marginTop="35dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:scaleType="fitXY" />
-
-        <android.support.design.widget.TextInputLayout
+        <!--start image field-->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
             android:layout_weight="3"
-            android:gravity="center"
-            android:layoutDirection="rtl"
-            android:textDirection="rtl">
+            android:gravity="center_horizontal"
+            android:layout_height="0dp">
 
-            <EditText
-                android:id="@+id/mailOrPhon_Edittext"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:drawablePadding="5dp"
-                android:drawableRight="@drawable/mail"
-                android:hint="@string/MailOrPhon"
-                android:inputType="text"
-                android:maxLines="1"
-                android:paddingRight="10dp"
-                android:singleLine="true"
-                android:textDirection="rtl" />
+            <ImageView
+                android:id="@+id/logo_imageView"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/userpic"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:scaleType="fitXY"
+                android:layout_marginTop="25dp"/>
 
+        </LinearLayout>
+        <!--end image field-->
 
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:gravity="center"
-            android:layoutDirection="rtl"
-            android:textDirection="rtl"
-            android:layout_marginTop="15dp">
-
-            <EditText
-                android:id="@+id/password_Edittext"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:drawablePadding="5dp"
-                android:drawableRight="@drawable/password"
-                android:hint="@string/Password"
-                android:imeActionId="6"
-                android:imeActionLabel="@string/Password"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:paddingRight="10dp"
-                android:singleLine="true"
-                android:textDirection="rtl" />
-
-        </android.support.design.widget.TextInputLayout>
-
-
-        <TextView
-            android:id="@+id/forgetPassword_textView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:layout_marginTop="10dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:gravity="left|center"
-            android:textColor="@color/blue"
-            android:text="@string/DidYouForgetYourPassword"
-            android:textDirection="ltr" />
-
-        <Button
-            android:id="@+id/signin_btn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/mybtn_style"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/SignIn"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+        <!--start input field-->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:layout_marginTop="20dp"
-            android:gravity="center_horizontal"
-            android:layoutDirection="rtl"
-            android:orientation="horizontal"
-            android:weightSum="5">
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:layout_height="0dp">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layoutDirection="rtl"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textDirection="rtl">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="2"
-                android:background="@color/gray">
+                <EditText
+                    android:id="@+id/mailOrPhon_Edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawablePadding="5dp"
+                    android:drawableRight="@drawable/mail"
+                    android:hint="@string/MailOrPhon"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textDirection="rtl" />
 
-            </View>
+
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layoutDirection="rtl"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textDirection="rtl"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/password_Edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawablePadding="5dp"
+                    android:drawableRight="@drawable/password"
+                    android:hint="@string/Password"
+                    android:imeActionId="6"
+                    android:imeActionLabel="@string/Password"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textDirection="rtl" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
 
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="0dp"
+                android:id="@+id/forgetPassword_textView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/Or"
-
-                />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:layout_weight="2"
-                android:background="@color/gray">
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="left|center"
+                android:textColor="@color/blue"
+                android:text="@string/DidYouForgetYourPassword"
+                android:textDirection="ltr" />
 
-            </View>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="100dp">
+                <Button
+                    android:id="@+id/signin_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/mybtn_style"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/SignIn"
+                    android:textColor="#ffffff"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+
 
         </LinearLayout>
 
+        <!--end input field-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:layout_marginTop="10dp"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_weight="3"
             android:orientation="vertical"
-            android:paddingBottom="20dp">
+            android:layout_height="0dp">
+
+            <!--space field-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="2"
+                    android:background="@color/gray">
+
+                </View>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/Or"
+
+                    />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="2"
+                    android:background="@color/gray">
+
+                </View>
+
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:text="@string/newuser"
                 android:textSize="20dp" />
 
+
+            <!--fb google field-->
+
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="10dp">
 
                 <ImageView
                     android:layout_width="45dp"
@@ -182,12 +208,15 @@
 
             </LinearLayout>
 
+
+            <!--new user  field-->
+
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="2"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:paddingBottom="20dp"
                 android:layoutDirection="rtl">
 
                 <TextView
@@ -206,7 +235,6 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
-
 </ScrollView>
+
