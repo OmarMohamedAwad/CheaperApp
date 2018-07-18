@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.unknown.cheaperapp.Classes.AdvertismentClass;
+import com.example.unknown.cheaperapp.Interface.AdsOnItemClickListenerInterface;
 import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;
@@ -15,9 +16,9 @@ import java.util.ArrayList;
 public class AdsRecyclerviewaAdapter extends RecyclerView.Adapter<AdsRecyclerviewaAdapter.AdsViewHolder> {
 
     ArrayList<AdvertismentClass> madsList;
-    RecyclerviewClickListenerInterface mclickListener;
+    AdsOnItemClickListenerInterface mclickListener;
 
-    public AdsRecyclerviewaAdapter(ArrayList<AdvertismentClass> adsList, RecyclerviewClickListenerInterface clickListener){
+    public AdsRecyclerviewaAdapter(ArrayList<AdvertismentClass> adsList, AdsOnItemClickListenerInterface clickListener){
         madsList=adsList;
         mclickListener=clickListener;
     }
@@ -94,9 +95,6 @@ public class AdsRecyclerviewaAdapter extends RecyclerView.Adapter<AdsRecyclervie
         }
     }
 
-    public interface RecyclerviewClickListenerInterface{
 
-        void OnItemClickListener(int position);
-    }
 
 }

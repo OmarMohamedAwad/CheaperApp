@@ -9,35 +9,34 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.unknown.cheaperapp.Classes.Category_Class;
-import com.example.unknown.cheaperapp.Interface.CustomOnItemCliclkListenerInterface;
+import com.example.unknown.cheaperapp.Interface.CategoryOnItemCliclkListenerInterface;
 import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;
-
-public class CategoriesRecyclerviewAdapter extends RecyclerView.Adapter<CategoriesRecyclerviewAdapter.CategoriesSellersViewHolder> {
+public class CategoriesRecyclerviewAdapter extends RecyclerView.Adapter<CategoriesRecyclerviewAdapter.CategoriesRecyclerviewViewHolder> {
 
 
     ArrayList<Category_Class> mcategoriesList;
-    CustomOnItemCliclkListenerInterface monItemCliclkListener;
+    CategoryOnItemCliclkListenerInterface monItemCliclkListener;
 
-    public CategoriesRecyclerviewAdapter(ArrayList<Category_Class> categoriesList, CustomOnItemCliclkListenerInterface onItemCliclkListener){
+    public CategoriesRecyclerviewAdapter(ArrayList<Category_Class> categoriesList, CategoryOnItemCliclkListenerInterface onItemCliclkListener){
         mcategoriesList=categoriesList;
         monItemCliclkListener=onItemCliclkListener;
     }
 
     @NonNull
     @Override
-    public CategoriesSellersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CategoriesRecyclerviewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_seller_item_cardview_layout,parent,false);
 
-        CategoriesSellersViewHolder viewHolder = new CategoriesSellersViewHolder(view);
+        CategoriesRecyclerviewViewHolder viewHolder = new CategoriesRecyclerviewViewHolder(view);
 
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoriesSellersViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoriesRecyclerviewViewHolder holder, int position) {
         holder.bind(mcategoriesList.get(position));
     }
 
@@ -46,12 +45,12 @@ public class CategoriesRecyclerviewAdapter extends RecyclerView.Adapter<Categori
         return mcategoriesList.size();
     }
 
-    public class CategoriesSellersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class CategoriesRecyclerviewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView textView;
         ImageView imageView;
 
-        public CategoriesSellersViewHolder(View itemView) {
+        public CategoriesRecyclerviewViewHolder(View itemView) {
             super(itemView);
 
             textView =itemView.findViewById(R.id.cardview_textview);
@@ -68,7 +67,7 @@ public class CategoriesRecyclerviewAdapter extends RecyclerView.Adapter<Categori
         @Override
         public void onClick(View v) {
             int SelectedPosition =getAdapterPosition();
-            monItemCliclkListener.OnItemClick(SelectedPosition);
+            monItemCliclkListener.OnCategoryItemClick(SelectedPosition);
         }
     }
 }

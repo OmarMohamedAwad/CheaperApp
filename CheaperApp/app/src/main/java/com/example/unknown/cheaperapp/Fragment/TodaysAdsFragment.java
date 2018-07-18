@@ -13,11 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.example.unknown.cheaperapp.Activity.AdDetailsActivity;
 import com.example.unknown.cheaperapp.Adapter.AdsRecyclerviewaAdapter;
 import com.example.unknown.cheaperapp.Classes.AdvertismentClass;
+import com.example.unknown.cheaperapp.Interface.AdsOnItemClickListenerInterface;
 import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TodaysAdsFragment extends Fragment implements AdsRecyclerviewaAdapter.RecyclerviewClickListenerInterface {
+public class TodaysAdsFragment extends Fragment implements AdsOnItemClickListenerInterface {
 
     RecyclerView recyclerView;
     AdsRecyclerviewaAdapter adapter;

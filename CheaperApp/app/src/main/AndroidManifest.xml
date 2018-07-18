@@ -46,7 +46,8 @@
         <activity android:name=".Activity.EditBranch_Activity" />
         <activity android:name=".Activity.Add_Notification_Activity" />
         <activity android:name=".Activity.MyAdvertisement_Activity" />
-        <activity android:name=".Activity.Categories_Sellers_Activity"></activity>
+        <activity android:name=".Activity.Categories_Stores_Activity" />
+        <activity android:name=".Activity.SpecificAdsActivity"></activity>
     </application>
 
 </manifest>
