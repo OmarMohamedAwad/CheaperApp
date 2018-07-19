@@ -137,7 +137,7 @@ public class AdDetailsActivity extends AppCompatActivity {
                 // dialog set
                 final Dialog dialog = new Dialog(AdDetailsActivity.this, R.style.NewDialog);
                 dialog.setContentView(R.layout.dialog_location_phonenumber);
-                dialog.setCancelable(false);
+                dialog.setCancelable(true);
                 dialog.show();
 
                 //get elments

@@ -1,78 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-   >
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_margin="10dp"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/add_image"
-        android:layout_height="200dp" />
+    android:background="@android:color/white"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
-        android:id="@+id/pricepefore_textView"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="217dp"
-        android:background="@drawable/edittext_border"
-        android:padding="5dp"
-        android:text="TextView"
-        android:textSize="20dp" />
+        android:paddingBottom="20dp"
+        android:text="@string/showproduct"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toEndOf="@+id/add_image"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:text="@string/deleteproduct"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/add_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/productname_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="35dp"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/edittext_border"
-        android:padding="5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/add_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pricepefore_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/price_after_textview"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_image"
+        app:layout_constraintTop_toBottomOf="@+id/productname_textView" />
 
     <TextView
         android:id="@+id/price_after_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/edittext_border"
-        android:textSize="20dp"
-        android:padding="5dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/pricepefore_textView"
-        android:layout_marginStart="126dp"
-        android:text="TextView" />
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/pricepefore_textView"
+        app:layout_constraintTop_toBottomOf="@+id/productname_textView" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="20dp"
-        android:paddingLeft="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/productname_textView"
-        android:layout_marginTop="88dp"
-        android:background="@drawable/mybtn_style"
-        android:text="@string/showadd"
-        android:textColor="#fff" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_delete_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/price_after_textview" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="20dp"
-        android:paddingLeft="20dp"
-        android:layout_alignBottom="@+id/add_image"
-        android:layout_alignStart="@+id/productname_textView"
-        android:background="@drawable/mybtn_style"
-        android:text="@string/endadd"
-        android:textColor="#fff" />
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/eye"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/add_image"
+        app:layout_constraintTop_toBottomOf="@+id/pricepefore_textView" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:layout_editor_absoluteX="16dp" />
+
+
+</android.support.constraint.ConstraintLayout>

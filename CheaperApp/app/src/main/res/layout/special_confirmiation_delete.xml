@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:background="@drawable/dialogstyle"
 
-        android:layout_height="150dp">
+        android:layout_height="wrap_content">
 <TextView
     android:layout_width="match_parent"
     android:gravity="center"
@@ -30,7 +30,7 @@
         android:layout_marginTop="20dp"
         android:weightSum="2"
         android:layout_marginBottom="20dp"
-        android:layout_height="wrap_content">
+        android:layout_height="80dp">
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -38,7 +38,7 @@
             android:text="@string/confirmation"
             android:id="@+id/onfirm_delete_btm"
             android:layout_margin="5dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             tools:ignore="Suspicious0dp" />
         <Button
             android:layout_width="0dp"
@@ -47,7 +47,7 @@
             android:text="@string/back"
             android:id="@+id/back_btn"
             android:layout_margin="5dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             tools:ignore="Suspicious0dp" />
     </LinearLayout>
     </LinearLayout>

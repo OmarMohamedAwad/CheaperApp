@@ -167,6 +167,8 @@
     <string name="storelocation">عنوان الفرع</string>
     <string name="storenumber">رقم الفرع</string>
     <string name="addnotification">اضافه اشعار</string>
+    <string name="showproduct">اظهار المنتج</string>
+    <string name="deleteproduct">حذف المنتج</string>
 
 
 </resources>
