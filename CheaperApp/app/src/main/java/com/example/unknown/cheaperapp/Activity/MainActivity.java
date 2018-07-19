@@ -17,7 +17,8 @@ import com.example.unknown.cheaperapp.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
-    DrawerLayout drawerLayout;
+    Toolbar toolbar;
+    DrawerLayout drawer;
     NavigationView navigationView;
     EndDrawerToggle toggle;
     Toast mtoast;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        GetElements();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
 
@@ -61,10 +64,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void handleNavigationClicks(){
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         EndDrawerToggle drawerToggle;
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.nav_drawer_layout);
         EndDrawerToggle toggle = new EndDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -99,9 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if(id==R.id.home_nav_btn){
 
-            Intent intent = getIntent();
-            finish();
-            startActivity(intent);
+            drawer.closeDrawers();
         }
         else if(id==R.id.advertiser_nav_btn){
 
@@ -140,9 +140,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent.putExtra("type",2);
             startActivity(intent);
         }
+        else if(id==R.id.logout_nav_btn){
+
+            LogOut();
+        }
 
 
         return true;
+    }
+
+
+    private void LogOut(){
+        finish();
+    }
+
+    private void GetElements(){
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        drawer = (DrawerLayout) findViewById(R.id.nav_drawer_layout);
     }
 
 

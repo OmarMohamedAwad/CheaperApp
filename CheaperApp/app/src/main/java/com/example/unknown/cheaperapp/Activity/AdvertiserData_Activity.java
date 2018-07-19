@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 
 public class AdvertiserData_Activity extends AppCompatActivity {
 
+    ListView brancheslist;
+    ArrayList<Branch_Class> branches;
 
     Button addBranch_btn,save_btn;
     BranchListViewAdapter adapter;
@@ -32,23 +36,16 @@ public class AdvertiserData_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertiser_data_);
 
-        final ArrayList<Branch_Class> branches = new ArrayList<Branch_Class>();
+        branches = new ArrayList<Branch_Class>();
         branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
         branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
-        ListView brancheslist = (ListView)findViewById(R.id.listofstores);
-         adapter = new BranchListViewAdapter(getApplication(),branches);
-        brancheslist.setAdapter(adapter);
+        brancheslist = findViewById(R.id.listofstores);
 
-        // Handle scroll between parent and listview
-        brancheslist.setOnTouchListener(new View.OnTouchListener() {
-            // Setting on Touch Listener for handling the touch inside ScrollView
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // Disallow the touch request for parent scroll on touch of child view
-                v.getParent().requestDisallowInterceptTouchEvent(true);
-                return false;
-            }
-        });
+
+        adapter = new BranchListViewAdapter(getApplication(),branches);
+        brancheslist.setAdapter(adapter);
+        brancheslist.setDivider(null);
+        setListViewHeightBasedOnItems(brancheslist);
 
 
         brancheslist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -126,6 +123,42 @@ public class AdvertiserData_Activity extends AppCompatActivity {
         });
 
     }
+
+    //this method to make the listview height expand to cover all items
+    public static boolean setListViewHeightBasedOnItems(ListView listView) {
+
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter != null) {
+
+            int numberOfItems = listAdapter.getCount();
+
+            // Get total height of all items.
+            int totalItemsHeight = 0;
+            for (int itemPos = 0; itemPos < numberOfItems; itemPos++) {
+                View item = listAdapter.getView(itemPos, null, listView);
+                item.measure(0, 0);
+                totalItemsHeight += item.getMeasuredHeight();
+            }
+
+            // Get total height of all item dividers.
+            int totalDividersHeight = listView.getDividerHeight() *
+                    (numberOfItems - 1);
+
+            // Set list height.
+            ViewGroup.LayoutParams params = listView.getLayoutParams();
+            params.height = totalItemsHeight + totalDividersHeight;
+            listView.setLayoutParams(params);
+            listView.requestLayout();
+
+            return true;
+
+        } else {
+            return false;
+        }
+
+    }
+
+
 }
 
 

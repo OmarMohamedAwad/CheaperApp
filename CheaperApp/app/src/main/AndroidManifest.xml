@@ -50,6 +50,7 @@
         <activity android:name=".Activity.SpecificAdsActivity"></activity>
         <activity android:name=".Activity.AdDetailsActivity"></activity>
         <activity android:name=".Activity.More_Describtion_activity"></activity>
+        <activity android:name=".Activity.SignUpActivity"></activity>
     </application>
 
 </manifest>

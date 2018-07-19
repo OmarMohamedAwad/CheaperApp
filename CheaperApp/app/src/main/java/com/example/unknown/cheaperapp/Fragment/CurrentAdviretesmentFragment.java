@@ -137,7 +137,6 @@ public class CurrentAdviretesmentFragment extends Fragment implements CurrentAds
 
                         adsList.clear();
 
-                        adsList = new ArrayList<>();
                         adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
                         adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
                         adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
@@ -170,6 +169,7 @@ public class CurrentAdviretesmentFragment extends Fragment implements CurrentAds
                 adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
                 adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
 
+                progressBar.setVisibility(View.GONE);
 
                 adapter.notifyDataSetChanged();
             }

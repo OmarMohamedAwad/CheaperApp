@@ -37,7 +37,7 @@
     <string name="ImageChooseOptions">هل تريد التقاط صورة لك ام اختيار صورة من الاستوديو ؟</string>
     <string name="TakePhoto">التقاط صورة</string>
     <string name="Cancel">إلغاء</string>
-    <string name="SendPasswordEmail">يرجى كتابة البريد الإلكترونى الخاص بك المرتبط بأرخصلى وسيتم إرسال رابط إليك لتعديل كلمة المرور</string>
+    <string name="SendPasswordEmail">يرجى كتابة البريد الإلكترونى الخاص بك</string>
     <string name="Send">إرسال</string>
     <string name="PasswordSentSuccess">لقد تم إرسال كلمة السر لك بنجاح</string>
     <string name="title_activity_home_fragment">HomeFragmentActivity</string>
@@ -169,6 +169,10 @@
     <string name="addnotification">اضافه اشعار</string>
     <string name="showproduct">اظهار المنتج</string>
     <string name="deleteproduct">حذف المنتج</string>
+
+
+    <string name="CompanyEmail">info@corefix.org</string>
+    <string name="ForgetPasswordSubject">ForgetPassword</string>
 
 
 </resources>

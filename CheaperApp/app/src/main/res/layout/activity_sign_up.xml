@@ -170,6 +170,7 @@
                 android:text="@string/DoYouHaveAccount" />
 
             <TextView
+                android:id="@+id/haveAccount_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/SignIn"

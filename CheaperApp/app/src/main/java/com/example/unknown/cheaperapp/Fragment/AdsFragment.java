@@ -47,7 +47,7 @@ public class AdsFragment extends Fragment {
         fragmenttitles.add(getString(R.string.AllAds));
         fragmenttitles.add(getString(R.string.TodayAds));
 
-        adapter = new AdsViewPagerAdapter(getActivity().getSupportFragmentManager(),fragmentList,fragmenttitles);
+        adapter = new AdsViewPagerAdapter(getChildFragmentManager(),fragmentList,fragmenttitles);
 
         viewPager.setAdapter(adapter);
 

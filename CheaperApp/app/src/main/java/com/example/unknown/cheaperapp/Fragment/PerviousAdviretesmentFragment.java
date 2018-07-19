@@ -133,8 +133,7 @@ public class PerviousAdviretesmentFragment extends Fragment implements CurrentAd
                     public void run() {
 
                         adsList.clear();
-
-                        adsList = new ArrayList<>();
+                        
                         adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
                         adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
                         adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));

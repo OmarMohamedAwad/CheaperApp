@@ -22,7 +22,6 @@ public class MyAdvertisement_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_advertisement_);
 
-        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
         //Set up view pager with adapter
         mViewPager =(ViewPager)findViewById(R.id.container);
         setupViewPager(mViewPager);

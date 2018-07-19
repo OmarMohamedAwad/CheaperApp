@@ -174,7 +174,6 @@ public class AllAdsFragment extends Fragment implements AdsOnItemClickListenerIn
         });
     }
 
-
     //this method for Loading More data into recyclerview
     private void loadMoreData(){
 

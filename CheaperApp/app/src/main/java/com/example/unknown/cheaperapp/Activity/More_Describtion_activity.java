@@ -13,7 +13,7 @@ TextView description_txtview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_more__describtion_activity);
+        setContentView(R.layout.activity_more_describtion_activity);
         description_txtview=findViewById(R.id.productDescription_edittext);
         Intent i= getIntent();
         Bundle b = i.getExtras();

@@ -1,10 +1,15 @@
 package com.example.unknown.cheaperapp.Activity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.unknown.cheaperapp.Classes.User_Class;
 import com.example.unknown.cheaperapp.R;
@@ -13,24 +18,19 @@ public class LoginActivity extends AppCompatActivity {
 
 
     Button signin_btn;
+    TextView forgetPassword_textView,createAccount_textview;
 
 
      public static User_Class currentUser;
 
 
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        callbackManager.onActivityResult(requestCode,resultCode,data);
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        signin_btn= findViewById(R.id.signin_btn);
+        GetElements();
 
         signin_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +40,54 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        forgetPassword_textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                ForgetPasswordDailog();
+            }
+        });
+
+        createAccount_textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
+
+            }
+        });
+
+
+    }
+
+    private void GetElements(){
+        signin_btn= findViewById(R.id.signin_btn);
+        forgetPassword_textView= findViewById(R.id.forgetPassword_textView);
+        createAccount_textview= findViewById(R.id.createAccount_textview);
+    }
+
+    private void ForgetPasswordDailog(){
+
+        Dialog dialog = new Dialog(this, R.style.NewDialog2);
+        dialog.setContentView(R.layout.forget_password_dialog);
+
+        final EditText email_edittext=dialog.findViewById(R.id.userEmail_Edittext);
+        Button send_btn=dialog.findViewById(R.id.send_btn);
+
+
+        send_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + getString(R.string.CompanyEmail)));
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.ForgetPasswordSubject));
+                intent.putExtra(Intent.EXTRA_TEXT, email_edittext.getText().toString());
+                startActivity(intent);
+
+            }
+        });
+
+        dialog.show();
     }
 
 //
