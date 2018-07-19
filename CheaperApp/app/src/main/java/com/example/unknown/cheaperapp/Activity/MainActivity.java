@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         GetElements();
-
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdsFragment()).commit();
 
 
@@ -66,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
         EndDrawerToggle drawerToggle;
         EndDrawerToggle toggle = new EndDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -138,6 +138,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if(id==R.id.markets_nav_btn){
             Intent intent = new Intent(MainActivity.this,Categories_Stores_Activity.class);
             intent.putExtra("type",2);
+            startActivity(intent);
+        }else if(id==R.id.contactus_nav_btn){
+            Intent intent = new Intent(MainActivity.this,ContactUs_Activity.class);
             startActivity(intent);
         }
         else if(id==R.id.logout_nav_btn){

@@ -30,6 +30,8 @@ public class AdvertiserData_Activity extends AppCompatActivity {
 
     Button addBranch_btn,save_btn;
     BranchListViewAdapter adapter;
+    android.support.v7.widget.Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +123,7 @@ public class AdvertiserData_Activity extends AppCompatActivity {
                 startActivity(new Intent(AdvertiserData_Activity.this,AddBranch_Activity.class));
             }
         });
-
+        AddBackbtnInToolbar();
     }
 
     //this method to make the listview height expand to cover all items
@@ -157,6 +159,22 @@ public class AdvertiserData_Activity extends AppCompatActivity {
         }
 
     }
+    private void AddBackbtnInToolbar(){
+
+        toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_24dp));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
 
 
 }

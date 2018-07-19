@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    tools:context=".Activity.ContactUs_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:foregroundGravity="right"
+                android:textAlignment="viewEnd"
+                android:layout_height="?attr/actionBarSize"
+
+                android:background="?attr/colorPrimary"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/notification"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/Contact_us"
+                    android:textColor="#fff"
+                    android:layout_gravity="center"
+
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content" />
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textDirection="rtl">
+
+            <EditText
+                android:id="@+id/name_Edittext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="5dp"
+                android:hint="@string/Name"
+                android:inputType="text"
+
+                android:layoutDirection="rtl"
+                android:maxLines="1"
+                android:paddingRight="10dp"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textDirection="rtl">
+
+            <EditText
+                android:id="@+id/email_Edittext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="5dp"
+                android:hint="@string/Email"
+                android:inputType="text"
+
+                android:layoutDirection="rtl"
+                android:maxLines="1"
+                android:paddingRight="10dp"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textDirection="rtl">
+
+            <EditText
+                android:id="@+id/phone_Edittext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="5dp"
+                android:hint="@string/PhoneNumber"
+                android:inputType="text"
+                android:layoutDirection="rtl"
+                android:maxLines="1"
+                android:paddingRight="10dp"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <EditText
+            android:id="@+id/message"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/borderdescribtion"
+            android:backgroundTint="@color/colorPrimary"
+            android:breakStrategy="balanced"
+            android:fitsSystemWindows="true"
+            android:gravity="top"
+            android:hint="@string/YourMessage"
+            android:inputType="textMultiLine"
+            android:padding="5dp"
+            android:singleLine="false"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+        <Button
+            android:layout_width="150dp"
+            android:id="@+id/send_btn"
+            android:layout_gravity="center"
+            android:background="@drawable/mybtn_style"
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/Send"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</ScrollView>

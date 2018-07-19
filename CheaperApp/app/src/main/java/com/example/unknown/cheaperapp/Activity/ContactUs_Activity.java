@@ -4,29 +4,34 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.unknown.cheaperapp.R;
 
-public class AddBranch_Activity extends AppCompatActivity {
-    ImageView GetLocation_btn;
+public class ContactUs_Activity extends AppCompatActivity {
     android.support.v7.widget.Toolbar toolbar;
+    EditText email,username,message;
+    Button send_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_branch_);
-        GetLocation_btn=(ImageView)findViewById(R.id.GetLocation_btn);
-        GetLocation_btn.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_contact_us_);
+        AddBackbtnInToolbar();
+        GetElements();
+        send_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AddBranch_Activity.this, MapActivity.class);
-                startActivity(intent);
+
             }
         });
-        AddBackbtnInToolbar();
-
     }
-
+    private void GetElements(){
+        email=findViewById(R.id.email_Edittext);
+        username=findViewById(R.id.name_Edittext);
+        message=findViewById(R.id.message);
+        send_btn=findViewById(R.id.send_btn);
+    }
     private void AddBackbtnInToolbar(){
 
         toolbar=findViewById(R.id.toolbar);
@@ -42,4 +47,5 @@ public class AddBranch_Activity extends AppCompatActivity {
         });
 
     }
+
 }
