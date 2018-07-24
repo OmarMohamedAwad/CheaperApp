@@ -5,20 +5,30 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.unknown.cheaperapp.Classes.User_Class;
 import com.example.unknown.cheaperapp.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
 
     Button signin_btn;
     TextView forgetPassword_textView,createAccount_textview;
+    EditText mailOrPhon_Edittext,password_Edittext;
 
 
      public static User_Class currentUser;
@@ -64,6 +74,8 @@ public class LoginActivity extends AppCompatActivity {
         signin_btn= findViewById(R.id.signin_btn);
         forgetPassword_textView= findViewById(R.id.forgetPassword_textView);
         createAccount_textview= findViewById(R.id.createAccount_textview);
+        password_Edittext=findViewById(R.id.password_Edittext);
+        mailOrPhon_Edittext=findViewById(R.id.mailOrPhon_Edittext);
     }
 
     private void ForgetPasswordDailog(){
@@ -88,6 +100,42 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+
+    private void LoginToServer(){
+
+        String url="";
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map params = new HashMap();
+
+//                try {
+//                    int num = Integer.parseInt(mailOrPhon_Edittext.getText().toString());
+//
+//                } catch (NumberFormatException e) {
+//
+//                }
+
+                params.put("phoneNumber",mailOrPhon_Edittext.getText().toString());
+                params.put("Password",password_Edittext.getText().toString());
+
+                return  params;
+            }
+        };
+
     }
 
 //
