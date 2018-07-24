@@ -8,9 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.example.unknown.cheaperapp.Classes.Category_Class;
 import com.example.unknown.cheaperapp.Interface.CategoryOnItemCliclkListenerInterface;
 import com.example.unknown.cheaperapp.R;
+import com.example.unknown.cheaperapp.Volley.AppController;
 
 import java.util.ArrayList;
 public class CategoriesRecyclerviewAdapter extends RecyclerView.Adapter<CategoriesRecyclerviewAdapter.CategoriesRecyclerviewViewHolder> {
@@ -48,7 +51,7 @@ public class CategoriesRecyclerviewAdapter extends RecyclerView.Adapter<Categori
     public class CategoriesRecyclerviewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView textView;
-        ImageView imageView;
+        NetworkImageView imageView;
 
         public CategoriesRecyclerviewViewHolder(View itemView) {
             super(itemView);
@@ -60,8 +63,17 @@ public class CategoriesRecyclerviewAdapter extends RecyclerView.Adapter<Categori
         }
 
         public void bind(Category_Class category){
+
             textView.setText(category.getName());
-            imageView.setImageResource(category.getImageResourceId());
+
+            if(category.getImageUrl()==null||category.getImageUrl().length()<1){
+                imageView.setImageResource(category.getImageResourceId());
+            }
+            else {
+                ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+                imageView.setImageUrl(category.getImageUrl(),imageLoader);
+            }
+
         }
 
         @Override
