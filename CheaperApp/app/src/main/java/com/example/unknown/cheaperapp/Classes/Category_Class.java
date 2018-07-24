@@ -7,32 +7,24 @@ public class Category_Class {
     int ID;
     String Name;
     String Description;
+    String ImageUrl;
+
     int ImageResourceId;
 
     ArrayList<AdvertismentClass> AdvertisementList;
 
 
     public Category_Class() {
+
     }
 
-    public Category_Class(int ID, String name, String description) {
-        this.ID = ID;
-        Name = name;
-        Description = description;
+
+    public String getImageUrl() {
+        return ImageUrl;
     }
 
-    public Category_Class(int ID, String name, String description, int imageResourceId) {
-        this.ID = ID;
-        Name = name;
-        Description = description;
-        ImageResourceId = imageResourceId;
-    }
-
-    public Category_Class(int ID, String name, String description, ArrayList<AdvertismentClass> advertisementList) {
-        this.ID = ID;
-        Name = name;
-        Description = description;
-        AdvertisementList = advertisementList;
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
     }
 
     public int getImageResourceId() {

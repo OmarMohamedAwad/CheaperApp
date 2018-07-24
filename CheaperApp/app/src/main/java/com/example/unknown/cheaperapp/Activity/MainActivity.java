@@ -9,11 +9,17 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.example.unknown.cheaperapp.Classes.User_Class;
 import com.example.unknown.cheaperapp.Fragment.AdsFragment;
 import com.example.unknown.cheaperapp.Classes.EndDrawerToggle;
 import com.example.unknown.cheaperapp.R;
+import com.example.unknown.cheaperapp.Volley.AppController;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
@@ -24,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toast mtoast;
 
     boolean IsSeller=true;
+
+    User_Class currentUser;
 
     @Override
     protected void onStart() {
@@ -44,7 +52,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         handleNavigationClicks();
 
-//        ChangeNavigation();
+        currentUser=getIntent().getParcelableExtra("user");
+
+        ChangeNavigation();
 
     }
 
@@ -52,12 +62,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // this code to change navigation drawer according to user status (login / logout)
     private void ChangeNavigation(){
 
-        if(LoginActivity.currentUser==null){
+        if(currentUser==null){
 
             navigationView.getMenu().clear();
             navigationView.inflateMenu(R.menu.drawable_nav_items_logout);
             navigationView.getHeaderView(0).setVisibility(View.GONE);
             navigationView.setNavigationItemSelectedListener(this);
+
+        }
+        else {
+            LoadUserData();
         }
     }
 
@@ -161,6 +175,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.nav_drawer_layout);
+    }
+
+    private void LoadUserData(){
+
+
+        View view= navigationView.getHeaderView(0);
+        NetworkImageView profile_imageview=view.findViewById(R.id.profile_imageview);
+        TextView userName_textview=view.findViewById(R.id.userName_textview);
+        TextView email_textview=view.findViewById(R.id.email_textview);
+
+        userName_textview.setText(currentUser.getName());
+        email_textview.setText(currentUser.getEmail());
+        LoadProfilePicture(currentUser.getImageUrl(),profile_imageview);
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+    }
+
+    private void LoadProfilePicture(String url,NetworkImageView networkImageView){
+
+        ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+        networkImageView.setImageUrl(url,imageLoader);
+
     }
 
 

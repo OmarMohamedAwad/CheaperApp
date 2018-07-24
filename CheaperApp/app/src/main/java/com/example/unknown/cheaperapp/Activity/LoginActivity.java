@@ -13,12 +13,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.example.unknown.cheaperapp.Classes.Constraints;
+import com.example.unknown.cheaperapp.Classes.URLS;
 import com.example.unknown.cheaperapp.Classes.User_Class;
 import com.example.unknown.cheaperapp.R;
+import com.example.unknown.cheaperapp.Volley.AppController;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,8 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView forgetPassword_textView,createAccount_textview;
     EditText mailOrPhon_Edittext,password_Edittext;
 
-
-     public static User_Class currentUser;
+    User_Class currentUser;
 
 
 
@@ -46,7 +55,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                if(Constraints.NotEmpty(mailOrPhon_Edittext.getText().toString())&&Constraints.NotEmpty(password_Edittext.getText().toString())){
+
+                    LoginToServer();
+                }
+                else {
+                    Constraints.MyToast(LoginActivity.this,"برجاء ادخال رقم الهاتف وكلمة المرور",Toast.LENGTH_SHORT);
+                }
+
+
             }
         });
 
@@ -104,17 +121,47 @@ public class LoginActivity extends AppCompatActivity {
 
     private void LoginToServer(){
 
-        String url="";
+        String url= URLS.LoginUrl;
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
+                try {
+
+                    JSONObject rootObj =new JSONObject(response);
+
+                    JSONArray array= rootObj.getJSONArray("user");
+
+                    JSONObject userObj= array.getJSONObject(0);
+
+                    currentUser = new User_Class();
+
+                    currentUser.setID(userObj.getInt("id"));
+                    currentUser.setName(userObj.getString("userName"));
+                    currentUser.setEmail(userObj.getString("email"));
+                    currentUser.setImageUrl(URLS.BaseUrl+userObj.getString("photo"));
+                    currentUser.setPassword(password_Edittext.getText().toString());
+
+                    LoadUserData();
+
+                } catch (JSONException e) {
+                    Constraints.MyToast(LoginActivity.this,getString(R.string.errorParsing),Toast.LENGTH_SHORT);
+                }
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
+                String errorMsg ="حدث خطأ,برجاء المحاولة مرة اخرى" ;
+
+                NetworkResponse response = error.networkResponse;
+                if(response != null && response.data != null){
+                    errorMsg = new String(response.data);
+                }
+
+                Constraints.MyToast(LoginActivity.this,errorMsg,Toast.LENGTH_SHORT);
             }
         })
         {
@@ -122,12 +169,6 @@ public class LoginActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map params = new HashMap();
 
-//                try {
-//                    int num = Integer.parseInt(mailOrPhon_Edittext.getText().toString());
-//
-//                } catch (NumberFormatException e) {
-//
-//                }
 
                 params.put("phoneNumber",mailOrPhon_Edittext.getText().toString());
                 params.put("Password",password_Edittext.getText().toString());
@@ -135,6 +176,16 @@ public class LoginActivity extends AppCompatActivity {
                 return  params;
             }
         };
+
+        AppController.getInstance().addToRequestQueue(request);
+
+    }
+
+    private void LoadUserData(){
+
+        Intent intent=  new Intent(LoginActivity.this,MainActivity.class);
+        intent.putExtra("user",currentUser);
+        startActivity(intent);
 
     }
 

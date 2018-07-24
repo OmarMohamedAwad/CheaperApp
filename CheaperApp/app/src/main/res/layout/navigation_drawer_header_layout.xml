@@ -9,11 +9,13 @@
     android:padding="10dp">
 
 
-    <ImageView
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/profile_imageview"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/real_doctor_photo"/>
     <TextView
+        android:id="@+id/userName_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -22,6 +24,7 @@
         android:text="Dr/Ekram Ali"/>
 
     <TextView
+        android:id="@+id/email_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
