@@ -17,9 +17,21 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.example.unknown.cheaperapp.Adapter.BranchListViewAdapter;
 import com.example.unknown.cheaperapp.Classes.Branch_Class;
 import com.example.unknown.cheaperapp.R;
+import com.example.unknown.cheaperapp.Volley.AppController;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -27,10 +39,11 @@ public class AdvertiserData_Activity extends AppCompatActivity {
 
     ListView brancheslist;
     ArrayList<Branch_Class> branches;
-
+    String store_id;
     Button addBranch_btn,save_btn;
     BranchListViewAdapter adapter;
     android.support.v7.widget.Toolbar toolbar;
+    Toast toast;
 
 
     @Override
@@ -39,16 +52,18 @@ public class AdvertiserData_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_advertiser_data_);
 
         branches = new ArrayList<Branch_Class>();
-        branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
-        branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
+      //  branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
+
+        //branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
         brancheslist = findViewById(R.id.listofstores);
 
 
         adapter = new BranchListViewAdapter(getApplication(),branches);
+        getbrancheslist();
+
         brancheslist.setAdapter(adapter);
         brancheslist.setDivider(null);
         setListViewHeightBasedOnItems(brancheslist);
-
 
         brancheslist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -175,7 +190,54 @@ public class AdvertiserData_Activity extends AppCompatActivity {
 
     }
 
+    private void getbrancheslist(){
 
+        String url="http://b9603217.ngrok.io/api/branches/GetStoreBranches/2";
+
+        StringRequest request=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    JSONObject rootObj = new JSONObject(response);
+                    JSONArray rootArr = rootObj.getJSONArray("branches");
+                    for(int i = 0; i < rootArr.length(); i++){
+
+
+                        JSONObject obj = rootArr.getJSONObject(i);
+
+                        String address = obj.getString("address");
+                        String phone = obj.getString("phone");
+                        String name = obj.getString("name");
+                        int id = obj.getInt("id");
+
+                        Branch_Class  branch1=new Branch_Class(address,phone,address);
+                        branch1.setName(name);
+                        branch1.setID(id);
+                        branches.add(branch1);
+                    }
+                }catch (JSONException e){
+                    showToast("catch");
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                showToast("error");
+
+            }
+        });
+
+        AppController.getInstance().addToRequestQueue(request);
+
+
+    }
+    void showToast(String msg) {
+        if (toast == null || toast.getView().getWindowVisibility() != View.VISIBLE) {
+            toast = Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG);
+            toast.show();
+        }
+    }
 
 }
 

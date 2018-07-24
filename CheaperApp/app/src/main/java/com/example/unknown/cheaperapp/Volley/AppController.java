@@ -1,12 +1,16 @@
 package com.example.unknown.cheaperapp.Volley;
 
 import android.app.Application;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
+import android.util.Base64;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+
+import java.io.ByteArrayOutputStream;
 
 public class AppController extends Application {
 
@@ -63,4 +67,6 @@ public class AppController extends Application {
             mRequestQueue.cancelAll(tag);
         }
     }
+
+
 }

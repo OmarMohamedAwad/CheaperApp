@@ -40,6 +40,9 @@ public class BranchListViewAdapter extends ArrayAdapter<Branch_Class> {
         TextView CityName = (TextView) listItemView.findViewById(R.id.location_txt);
         CityName.setText(currentbranch.getCityName().toString());
 
+
+        TextView branchname = (TextView) listItemView.findViewById(R.id.branchname);
+        branchname.setText(currentbranch.getName().toString());
                return listItemView;
     }
 }
