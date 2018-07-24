@@ -140,6 +140,9 @@ public class CurrentAdviretesmentFragment extends Fragment implements CurrentAds
                         adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
                         adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
                         adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
+                        adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
+                        adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
+                        adsList.add(new Add_Class("نضاره ريبان","3000","1500",R.drawable.shooes1));
 
                         adapter.notifyDataSetChanged();
 

@@ -1,6 +1,7 @@
 package com.example.unknown.cheaperapp.Activity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,6 +46,7 @@ public class MakeOfferActivity extends AppCompatActivity {
 
     TextView startDate_textview,endDate_textview;
     LinearLayout linearLayout ;
+    android.support.v7.widget.Toolbar toolbar;
 
 
 
@@ -89,7 +91,7 @@ public class MakeOfferActivity extends AppCompatActivity {
         });
 
 
-
+        AddBackbtnInToolbar();
 
     }
 
@@ -285,5 +287,21 @@ public class MakeOfferActivity extends AppCompatActivity {
 
 
     }
+    private void AddBackbtnInToolbar(){
+
+        toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_24dp));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
 
 }

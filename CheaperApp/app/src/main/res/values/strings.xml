@@ -173,6 +173,7 @@
 
     <string name="CompanyEmail">info@corefix.org</string>
     <string name="ForgetPasswordSubject">ForgetPassword</string>
+    <string name="YourMessage">قم بادخال رسالتك التى تريد كتابتها</string>
 
 
 </resources>

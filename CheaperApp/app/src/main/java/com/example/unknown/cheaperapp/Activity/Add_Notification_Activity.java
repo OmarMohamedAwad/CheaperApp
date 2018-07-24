@@ -1,5 +1,6 @@
 package com.example.unknown.cheaperapp.Activity;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +32,8 @@ public class Add_Notification_Activity extends AppCompatActivity {
     //fortesting
     ArrayList<String>Productsnsame;
     Boolean SendState;
+    android.support.v7.widget.Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,7 @@ public class Add_Notification_Activity extends AppCompatActivity {
                 shownotification();
             }
         });
+        AddBackbtnInToolbar();
     }
 
 
@@ -109,5 +113,21 @@ public class Add_Notification_Activity extends AppCompatActivity {
 
 
     }
+    private void AddBackbtnInToolbar(){
+
+        toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_24dp));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
 
 }
