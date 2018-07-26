@@ -13,12 +13,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.example.unknown.cheaperapp.Activity.AdDetailsActivity;
+import com.example.unknown.cheaperapp.Activity.LoginActivity;
 import com.example.unknown.cheaperapp.Adapter.AdsRecyclerviewaAdapter;
 import com.example.unknown.cheaperapp.Classes.AdvertismentClass;
+import com.example.unknown.cheaperapp.Classes.Constraints;
+import com.example.unknown.cheaperapp.Classes.URLS;
 import com.example.unknown.cheaperapp.Interface.AdsOnItemClickListenerInterface;
 import com.example.unknown.cheaperapp.R;
+import com.example.unknown.cheaperapp.Volley.AppController;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
@@ -37,6 +51,8 @@ public class AllAdsFragment extends Fragment implements AdsOnItemClickListenerIn
     boolean isScrolling=false;
     int totalItems,currentItems,scrolledOutItems;
     SwipeRefreshLayout allAds_swiperefreshlayout;
+
+    int startIndex,endIndex;
 
     public AllAdsFragment() {
         // Required empty public constructor
@@ -69,6 +85,8 @@ public class AllAdsFragment extends Fragment implements AdsOnItemClickListenerIn
     public void OnItemClickListener(int position) {
        startActivity(new Intent(getActivity(), AdDetailsActivity.class));
     }
+
+
 
 
     private void FillData(View view){
@@ -195,6 +213,50 @@ public class AllAdsFragment extends Fragment implements AdsOnItemClickListenerIn
                 adapter.notifyDataSetChanged();
             }
         },3000);
+
+    }
+
+    //this Method for loading data from server
+
+    private void getData(){
+
+
+        String url= URLS.BaseUrl+URLS.getAllAdsUrl+startIndex+"/"+endIndex;
+
+
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONArray rootArr= new JSONArray(response);
+
+
+
+
+
+                } catch (JSONException e) {
+                    Constraints.MyToast(getActivity(),getString(R.string.errorParsing), Toast.LENGTH_SHORT);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                String errorMsg ="حدث خطأ,برجاء المحاولة مرة اخرى" ;
+
+                NetworkResponse response = error.networkResponse;
+                if(response != null && response.data != null){
+                    errorMsg = new String(response.data);
+                }
+
+                Constraints.MyToast(getActivity(),errorMsg,Toast.LENGTH_SHORT);
+
+            }
+        });
+
+
+        AppController.getInstance().addToRequestQueue(request);
 
     }
 

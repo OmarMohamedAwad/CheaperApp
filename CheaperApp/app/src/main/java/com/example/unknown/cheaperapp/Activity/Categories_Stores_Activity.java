@@ -138,7 +138,7 @@ public class Categories_Stores_Activity extends AppCompatActivity implements Cat
 
     private void getCategoriesData(){
 
-        String url = URLS.getCategoriesUrl;
+        String url = URLS.BaseUrl+URLS.getCategoriesUrl;
 
         categoriesList= new ArrayList<>();
 

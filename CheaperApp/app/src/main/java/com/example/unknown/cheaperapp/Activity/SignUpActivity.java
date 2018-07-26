@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -75,7 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 progressBar.setVisibility(progressBar.VISIBLE);
                 //checkconstraint
-                String url= URLS.Register;
+                String url= URLS.RegisterUrl;
 
                 if(name_Edittext.getText().toString().matches("")||email_Edittext.getText().toString().matches("")||
                         phone_Edittext.getText().toString().matches("")||password_Edittext.getText().toString().matches(""))

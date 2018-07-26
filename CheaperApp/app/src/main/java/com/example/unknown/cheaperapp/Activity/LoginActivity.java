@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void LoginToServer(){
 
-        String url= URLS.LoginUrl;
+        String url= URLS.BaseUrl+URLS.LoginUrl;
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
