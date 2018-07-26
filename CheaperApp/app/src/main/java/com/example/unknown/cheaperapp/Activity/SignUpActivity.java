@@ -1,6 +1,7 @@
 package com.example.unknown.cheaperapp.Activity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,10 +18,12 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.unknown.cheaperapp.Classes.Constraints;
 import com.example.unknown.cheaperapp.Classes.URLS;
 import com.example.unknown.cheaperapp.Classes.User_Class;
 import com.example.unknown.cheaperapp.R;
@@ -47,7 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Toast toast;
     Bitmap bitmap;
     User_Class user;
-    ProgressBar progressBar;
+    ProgressDialog dialog;
 
 
     @Override
@@ -72,9 +75,8 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                progressBar.setVisibility(progressBar.VISIBLE);
                 //checkconstraint
-                String url= URLS.RegisterUrl;
+                String url= URLS.BaseUrl+URLS.RegisterUrl;
 
                 if(name_Edittext.getText().toString().matches("")||email_Edittext.getText().toString().matches("")||
                         phone_Edittext.getText().toString().matches("")||password_Edittext.getText().toString().matches(""))
@@ -91,7 +93,8 @@ public class SignUpActivity extends AppCompatActivity {
 
                 {
                     getdata();
-
+                    dialog =  ProgressDialog.show(SignUpActivity.this, "",
+                            "Loading. Please wait...", true);
                     StringRequest MyRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -99,24 +102,30 @@ public class SignUpActivity extends AppCompatActivity {
 
                                 JSONObject rootObj = new JSONObject(response);
                                 if(rootObj.has("status")){
-                                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                                    intent.putExtra("user", user);
+                                    Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+                                    //intent.putExtra("user", user);
                                     startActivity(intent);
                                 }
 
                             }
                             catch(JSONException e){
                                 showToast(getString(R.string.checkInternert));
-                                progressBar.setVisibility(progressBar.GONE);
-
+                                dialog.dismiss();
                             }
                         }
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
 
-                            showToast(getString(R.string.TryAgainError));
-                            progressBar.setVisibility(progressBar.GONE);
+                            dialog.dismiss();
+                            String errorMsg ="حدث خطأ,برجاء المحاولة مرة اخرى" ;
+
+                            NetworkResponse response = error.networkResponse;
+                            if(response != null && response.data != null){
+                                errorMsg = new String(response.data);
+                            }
+
+                            Constraints.MyToast(SignUpActivity.this,errorMsg,Toast.LENGTH_SHORT);
 
                         }
                     })
@@ -128,7 +137,7 @@ public class SignUpActivity extends AppCompatActivity {
                             params.put("Password",password_Edittext.getText().toString());
                             params.put("Email",user.getEmail());
                             // user.getimage()   just but any string now until they fix it
-                            params.put("Photo","dopca");
+                            params.put("Photo","sadww");
                             return params;
                         }
 
@@ -237,7 +246,6 @@ public class SignUpActivity extends AppCompatActivity {
         retypePassword_Edittext = findViewById(R.id.retypePassword_Edittext);
         signup_btn = findViewById(R.id.signup_btn);
         user_ImageView = findViewById(R.id.user_ImageView);
-        progressBar=findViewById(R.id.progress_bar);
 
     }
     // show toast

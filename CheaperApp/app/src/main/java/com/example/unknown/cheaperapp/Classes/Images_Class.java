@@ -6,8 +6,6 @@ public class Images_Class {
     String Base64;
     String Path;
     int ResourceID;
-
-
     public Images_Class() {
     }
 

@@ -4,6 +4,7 @@
 package com.example.unknown.cheaperapp.Activity;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -41,6 +43,7 @@ public class AdvertiserData_Activity extends AppCompatActivity {
     BranchListViewAdapter adapter;
     android.support.v7.widget.Toolbar toolbar;
     Toast toast;
+    ProgressDialog dialog;
 
 
     @Override
@@ -54,13 +57,9 @@ public class AdvertiserData_Activity extends AppCompatActivity {
         //branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
         brancheslist = findViewById(R.id.listofstores);
 
-
-        adapter = new BranchListViewAdapter(getApplication(),branches);
         getbrancheslist();
 
-        brancheslist.setAdapter(adapter);
-        brancheslist.setDivider(null);
-        setListViewHeightBasedOnItems(brancheslist);
+
 
         brancheslist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -189,7 +188,9 @@ public class AdvertiserData_Activity extends AppCompatActivity {
 
     private void getbrancheslist(){
 
-        String url= URLS.branchesListUrl +"/2";
+           dialog =  ProgressDialog.show(AdvertiserData_Activity.this, "",
+                   "Loading. Please wait...", true);
+        String url= URLS.BaseUrl+URLS.branchesListUrl +"/2";
 
         StringRequest request=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -211,19 +212,34 @@ public class AdvertiserData_Activity extends AppCompatActivity {
                         Branch_Class  branch1=new Branch_Class(address,phone,address);
                         branch1.setName(name);
                         branch1.setID(id);
+                        branch1.setAddress(address);
                         branches.add(branch1);
+
                     }
+                    adapter = new BranchListViewAdapter(getApplication(),branches);
+
+                    brancheslist.setAdapter(adapter);
+                    brancheslist.setDivider(null);
+                    setListViewHeightBasedOnItems(brancheslist);
+                    adapter.notifyDataSetChanged();
+                    dialog.dismiss();
                 }catch (JSONException e){
                     showToast("catch");
+                    dialog.dismiss();
+
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 showToast("error");
+                dialog.dismiss();
 
             }
         });
+        request.setRetryPolicy(new DefaultRetryPolicy(5000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         AppController.getInstance().addToRequestQueue(request);
 

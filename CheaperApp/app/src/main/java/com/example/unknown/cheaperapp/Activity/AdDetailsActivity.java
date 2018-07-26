@@ -13,23 +13,41 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.unknown.cheaperapp.Adapter.BranchesSpinnerAdapter;
 import com.example.unknown.cheaperapp.Adapter.ImageSliderAdapter;
+import com.example.unknown.cheaperapp.Classes.Add_Details;
 import com.example.unknown.cheaperapp.Classes.AdvertismentClass;
 import com.example.unknown.cheaperapp.Classes.Branch_Class;
+import com.example.unknown.cheaperapp.Classes.Constraints;
 import com.example.unknown.cheaperapp.Classes.Images_Class;
+import com.example.unknown.cheaperapp.Classes.URLS;
 import com.example.unknown.cheaperapp.R;
+import com.example.unknown.cheaperapp.Volley.AppController;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class AdDetailsActivity extends AppCompatActivity {
 
     ViewPager imageSlider_viewpager;
     ArrayList<Images_Class> imageList;
     ImageSliderAdapter sliderAdapter;
-    AdvertismentClass currentAd;
     Button moredescribtion_btn;
     TextView categoryName_textview,productName_textview,pricePreOffer_textview,priceAfterOffer_textview,description_textview
              ,sellerName_textview;
@@ -42,15 +60,17 @@ public class AdDetailsActivity extends AppCompatActivity {
     Button phone_number_btn,getlocation_btn;
     double longitude,latitude;
     android.support.v7.widget.Toolbar toolbar;
+    ImageView heartbtn;
+    Add_Details currectadd;
+    ArrayList<String>imagelistjs;
+    ArrayList<Branch_Class>brancheslist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad_details);
-
         GetElements();
-
-        FillData();
+        GetAdDetails();
         //dumy data for testing only
         imageList = new ArrayList<>();
         imageList.add(new Images_Class(R.drawable.rightslider));
@@ -62,9 +82,7 @@ public class AdDetailsActivity extends AppCompatActivity {
 
         imageSlider_viewpager.setAdapter(sliderAdapter);
 
-        spinnerAdapter= new BranchesSpinnerAdapter(this,currentAd.getAdvertisementBranchs());
 
-        branches_spinner.setAdapter(spinnerAdapter);
 
         // for more describtion
         moredescribtion_btn.setOnClickListener(new View.OnClickListener() {
@@ -96,45 +114,27 @@ public class AdDetailsActivity extends AppCompatActivity {
         imageSlider_viewpager=findViewById(R.id.imageSlider_viewpager);
         branches_spinner=findViewById(R.id.branches_spinner);
         moredescribtion_btn=findViewById(R.id.more_btn);
+        imagelistjs=new ArrayList<>();
+        brancheslist=new ArrayList<>();
+        currectadd=new Add_Details();
+        heartbtn=findViewById(R.id.favouriteicon);
 
     }
 
-
     private  void FillData(){
-
-        currentAd= new AdvertismentClass();
-
-        currentAd.setCategoryName("ملابس");
-        currentAd.setProductName("تيشرت بات مان");
-        currentAd.setPrice(400);
-        currentAd.setPriceAfterDiscount(200);
-        currentAd.setDescription("تيشرت بات مان للطفال من سن 15 ل 16 سنه");
-        currentAd.setSellerName("محلات ديزنى لاند");
-
-        ArrayList<Branch_Class> branchesList = new ArrayList<>();
-        branchesList.add(new Branch_Class(1,"الجلاء"));
-        branchesList.add(new Branch_Class(1,"اجا"));
-        branchesList.add(new Branch_Class(1,"الترعة"));
-        branchesList.add(new Branch_Class(1,"قناة السويس"));
-
-        currentAd.setAdvertisementBranchs(branchesList);
-
-
-        categoryName_textview.setText(currentAd.getCategoryName());
-        productName_textview.setText(currentAd.getProductName());
-        pricePreOffer_textview.setText(String.valueOf(currentAd.getPrice())+" LE");
-        priceAfterOffer_textview.setText(String.valueOf(currentAd.getPriceAfterDiscount()));
-        priceAfterOffer_textview.setPaintFlags(priceAfterOffer_textview.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
-        description_textview.setText(currentAd.getDescription());
-        sellerName_textview.setText(currentAd.getSellerName());
+        categoryName_textview.setText("القسم");
+        productName_textview.setText(currectadd.getProductName());
+        pricePreOffer_textview.setText(String.valueOf(currectadd.getPrice())+" LE");
+        priceAfterOffer_textview.setText(String.valueOf(currectadd.getPriceAfterDiscount()));
+        priceAfterOffer_textview.setPaintFlags(pricePreOffer_textview.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+        description_textview.setText(currectadd.getDescription());
+        sellerName_textview.setText(currectadd.getStoreName());
 
     }
     public  void OnSpinnerSelect(){
-
-
         branches_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, final int position, long id) {
 
                 // dialog set
                 final Dialog dialog = new Dialog(AdDetailsActivity.this, R.style.NewDialog);
@@ -151,7 +151,7 @@ public class AdDetailsActivity extends AppCompatActivity {
 
 
                 // store name
-                storename_txt.setText(" بيانات الفرع");
+                storename_txt.setText(brancheslist.get(position).getName());
                 //close_btn
                 colse_txt.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -159,7 +159,7 @@ public class AdDetailsActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
-                phone_number_btn.setText("0109941240");
+                phone_number_btn.setText(brancheslist.get(position).getPhone());
                 //open store location
                 getlocation_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -175,7 +175,7 @@ public class AdDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent i = new Intent(Intent.ACTION_DIAL);
-                        String p = "tel:" + "01099441240";
+                        String p = "tel:" + brancheslist.get(position).getPhone();
                         i.setData(Uri.parse(p));
                         startActivity(i);
                     }
@@ -205,6 +205,107 @@ public class AdDetailsActivity extends AppCompatActivity {
         });
 
     }
+
+
+
+    public  void GetAdDetails(){
+        final Branch_Class currentbranch=new Branch_Class();
+    String urL= URLS.BaseUrl+URLS.AdDetailsUrl+"13"+"/18";
+        StringRequest request=new StringRequest(Request.Method.GET, urL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    JSONObject rootObj = new JSONObject(response);
+                    JSONObject myobj=new JSONObject();
+                    myobj=rootObj.getJSONObject("adv");
+                    currectadd.setId((myobj.getInt("id")));
+                    currectadd.setProductName(myobj.getString("productName"));
+                    currectadd.setDescription(myobj.getString("description"));
+                    currectadd.setStoreName(myobj.getString("storeName"));
+                    currectadd.setPrice(String.valueOf(myobj.getInt("price")));
+                    currectadd.setPriceAfterDiscount(String.valueOf(myobj.getInt("priceAfterDiscount")));
+                    currectadd.setStartDate(myobj.getString("startDate"));
+                    currectadd.setEndDate(myobj.getString("endDate"));
+                    currectadd.setLimited(myobj.getBoolean("isLimited"));
+                    currectadd.setFavourite(myobj.getBoolean("isFavourite"));
+                    JSONArray imagesarr=myobj.getJSONArray("images");
+                    JSONArray branchesarr=myobj.getJSONArray("branches");
+                    for(int i=0;i<imagesarr.length();i++)
+                    {
+                      String image=imagesarr.getJSONObject(i).getString("path");
+                        imagelistjs.add(image);
+                    }
+
+                    for(int i=0;i<branchesarr.length();i++)
+                    {
+                        currentbranch.setID(Integer.parseInt(branchesarr.getJSONObject(i).getString("id")));
+                        currentbranch.setName(branchesarr.getJSONObject(i).getString("name"));
+                        currentbranch.setPhone(branchesarr.getJSONObject(i).getString("phone"));
+                        currentbranch.setAddress(branchesarr.getJSONObject(i).getString("address"));
+                       // branchesarr.getJSONObject(i).getDouble("lat"))
+                        currentbranch.setLat(String.valueOf("651561651"));
+                        currentbranch.setLang(String.valueOf("6498498"));
+                        brancheslist.add(currentbranch);
+                    }
+                    currectadd.setBranches(brancheslist);
+                    spinnerAdapter= new BranchesSpinnerAdapter(getApplicationContext(),currectadd.getBranches());
+
+                    branches_spinner.setAdapter(spinnerAdapter);
+                    FillData();
+                    isFavourite(currectadd.getFavourite());
+
+
+
+                }
+                catch(JSONException e){
+                    Constraints.MyToast(getApplicationContext(),getString(R.string.errorParsing), Toast.LENGTH_SHORT);
+
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                String errorMsg ="حدث خطأ,برجاء المحاولة مرة اخرى" ;
+
+                NetworkResponse response = error.networkResponse;
+                if(response != null && response.data != null){
+                    errorMsg = new String(response.data);
+                }
+
+                Constraints.MyToast(getApplicationContext(),errorMsg,Toast.LENGTH_SHORT);
+            }
+        })
+        {
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("adId","1");
+                params.put("userid","2");
+                return params;
+            }
+
+        };
+        request.setRetryPolicy(new DefaultRetryPolicy(30000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        AppController.getInstance().addToRequestQueue(request);
+
+    }
+    public void isFavourite(boolean isfavorite)
+    {
+        if(isfavorite==true)
+        {
+            heartbtn.setImageResource(R.drawable.redheart);
+        }else
+            {
+                heartbtn.setImageResource(R.drawable.whiteheart);
+
+            }
+
+    }
+
+
 
 
 }

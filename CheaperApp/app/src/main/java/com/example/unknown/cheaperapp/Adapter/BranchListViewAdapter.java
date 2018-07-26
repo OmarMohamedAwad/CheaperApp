@@ -34,10 +34,10 @@ public class BranchListViewAdapter extends ArrayAdapter<Branch_Class> {
         phonenumber.setText(currentbranch.getPhone().toString());
 
         TextView loation = (TextView) listItemView.findViewById(R.id.location_txt);
-        loation.setText(currentbranch.getLocation().toString());
+        loation.setText(currentbranch.getAddress().toString());
 
         TextView CityName = (TextView) listItemView.findViewById(R.id.location_txt);
-        CityName.setText(currentbranch.getCityName().toString());
+        CityName.setText(currentbranch.getAddress().toString());
 
 
         TextView branchname = (TextView) listItemView.findViewById(R.id.branchname);

@@ -1,6 +1,7 @@
 package com.example.unknown.cheaperapp.Activity;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     Button signin_btn;
     TextView forgetPassword_textView,createAccount_textview;
     EditText mailOrPhon_Edittext,password_Edittext;
-
+    ProgressDialog dialoglooading;
     User_Class currentUser;
 
 
@@ -71,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ForgetPasswordDailog();
+               ForgetPasswordDailog();
             }
         });
 
@@ -121,6 +122,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void LoginToServer(){
 
+        dialoglooading =  ProgressDialog.show(LoginActivity.this, "",
+                "Loading. Please wait...", true);
         String url= URLS.BaseUrl+URLS.LoginUrl;
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -144,9 +147,12 @@ public class LoginActivity extends AppCompatActivity {
                     currentUser.setPassword(password_Edittext.getText().toString());
 
                     LoadUserData();
+                    dialoglooading.dismiss();
 
                 } catch (JSONException e) {
                     Constraints.MyToast(LoginActivity.this,getString(R.string.errorParsing),Toast.LENGTH_SHORT);
+                    dialoglooading.dismiss();
+
                 }
 
             }
@@ -162,6 +168,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 Constraints.MyToast(LoginActivity.this,errorMsg,Toast.LENGTH_SHORT);
+                dialoglooading.dismiss();
             }
         })
         {
