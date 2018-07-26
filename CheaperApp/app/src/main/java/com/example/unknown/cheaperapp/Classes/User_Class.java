@@ -9,13 +9,22 @@ public class User_Class implements Parcelable {
     String Name;
     String Email;
     String Phone;
-    String Image;
+    String Password;
 
-    public User_Class(String name, String email, String phone, String image) {
+    String ImageUrl;
+
+
+
+    public User_Class(){
+
+    }
+
+    public User_Class(String name, String email, String phone, String password, String imageUrl) {
         Name = name;
         Email = email;
         Phone = phone;
-        Image = image;
+        Password = password;
+        ImageUrl = imageUrl;
     }
 
     protected User_Class(Parcel in) {
@@ -23,7 +32,8 @@ public class User_Class implements Parcelable {
         Name = in.readString();
         Email = in.readString();
         Phone = in.readString();
-        Image = in.readString();
+        Password = in.readString();
+        ImageUrl = in.readString();
     }
 
     public static final Creator<User_Class> CREATOR = new Creator<User_Class>() {
@@ -70,12 +80,20 @@ public class User_Class implements Parcelable {
         Phone = phone;
     }
 
-    public String getImage() {
-        return Image;
+    public String getImageUrl() {
+        return ImageUrl;
     }
 
-    public void setImage(String image) {
-        Image = image;
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 
     @Override
@@ -84,11 +102,12 @@ public class User_Class implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(ID);
-        parcel.writeString(Name);
-        parcel.writeString(Email);
-        parcel.writeString(Phone);
-        parcel.writeString(Image);
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(ID);
+        dest.writeString(Name);
+        dest.writeString(Email);
+        dest.writeString(Phone);
+        dest.writeString(Password);
+        dest.writeString(ImageUrl);
     }
 }

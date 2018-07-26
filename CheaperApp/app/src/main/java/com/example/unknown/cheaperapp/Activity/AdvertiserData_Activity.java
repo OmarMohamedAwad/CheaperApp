@@ -17,15 +17,13 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.unknown.cheaperapp.Adapter.BranchListViewAdapter;
 import com.example.unknown.cheaperapp.Classes.Branch_Class;
+import com.example.unknown.cheaperapp.Classes.URLS;
 import com.example.unknown.cheaperapp.R;
 import com.example.unknown.cheaperapp.Volley.AppController;
 
@@ -52,7 +50,7 @@ public class AdvertiserData_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_advertiser_data_);
 
         branches = new ArrayList<Branch_Class>();
-      //  branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
+        //  branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
 
         //branches.add(new Branch_Class("01099441240","Mansoura","Dachlia , Egypte"));
         brancheslist = findViewById(R.id.listofstores);
@@ -73,13 +71,13 @@ public class AdvertiserData_Activity extends AppCompatActivity {
                 ImageView edit_btn=(ImageView)view.findViewById(R.id.edit_btn);
                 edit_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
-                     public void onClick(View view) {
-                     startActivity(new Intent(AdvertiserData_Activity.this,EditBranch_Activity.class));
+                    public void onClick(View view) {
+                        startActivity(new Intent(AdvertiserData_Activity.this,EditBranch_Activity.class));
 
-                }});
+                    }});
 
 
-                        ImageView delete_btn = (ImageView) view.findViewById(R.id.delete_btn);
+                ImageView delete_btn = (ImageView) view.findViewById(R.id.delete_btn);
                 delete_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -192,7 +190,7 @@ public class AdvertiserData_Activity extends AppCompatActivity {
 
     private void getbrancheslist(){
 
-        String url="http://b9603217.ngrok.io/api/branches/GetStoreBranches/2";
+        String url= URLS.branchesList+"/2";
 
         StringRequest request=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -240,10 +238,5 @@ public class AdvertiserData_Activity extends AppCompatActivity {
     }
 
 }
-
-
-
-
-
 
 

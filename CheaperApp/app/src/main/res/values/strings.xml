@@ -174,10 +174,10 @@
     <string name="CompanyEmail">info@corefix.org</string>
     <string name="ForgetPasswordSubject">ForgetPassword</string>
     <string name="YourMessage">قم بادخال رسالتك التى تريد كتابتها</string>
+    <string name="checkInternert">تحقق من اتصالك بالانترنت !!</string>
+    <string name="errorParsing">Error while parsing!!</string>
+    <string name="commpleteinfo">من فضلك ادخل جميع البيانات</string>
+    <string name="chooseimagewarning">قم بتعين صورتك الشخصيه اولا</string>
     <string name="TryAgainError">من فضلك اعد المحاوله حدض خطا ما..</string>
-    <string name="checkyourconnection">من فضلك تحقق من الاتصال بالشبكه</string>
-    <string name="chooseimagewarning">من فضلك قم بتعين صورتك الشخصيه</string>
-    <string name="commpleteinfo">من فضلك قم بادخال بياناتك</string>
-
 
 </resources>

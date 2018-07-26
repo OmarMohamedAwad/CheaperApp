@@ -12,7 +12,6 @@ import com.example.unknown.cheaperapp.Classes.Branch_Class;
 import com.example.unknown.cheaperapp.R;
 
 import java.util.ArrayList;
-
 public class BranchListViewAdapter extends ArrayAdapter<Branch_Class> {
     private int backgrouncolor;
 
@@ -43,6 +42,6 @@ public class BranchListViewAdapter extends ArrayAdapter<Branch_Class> {
 
         TextView branchname = (TextView) listItemView.findViewById(R.id.branchname);
         branchname.setText(currentbranch.getName().toString());
-               return listItemView;
+        return listItemView;
     }
 }

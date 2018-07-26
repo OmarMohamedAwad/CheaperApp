@@ -17,160 +17,160 @@ android:fillViewport="true"
         android:paddingRight="15dp"
         >
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_weight="4"
-android:gravity="center"
-    android:layout_height="0dp">
-        <ImageView
-            android:id="@+id/user_ImageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:scaleType="fitXY"
-            android:src="@drawable/userpic" />
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:layout_height="0dp">
+            <ImageView
+                android:id="@+id/user_ImageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/userpic" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_weight="11"
             android:layout_height="0dp">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:layoutDirection="rtl"
-            android:textDirection="rtl">
-
-            <EditText
-                android:id="@+id/name_Edittext"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="25dp"
-                android:drawablePadding="5dp"
-                android:hint="@string/Name"
-                android:inputType="text"
+                android:gravity="center"
                 android:layoutDirection="rtl"
-                android:maxLines="1"
-                android:paddingRight="10dp"
-                android:singleLine="true" />
+                android:textDirection="rtl">
 
-        </android.support.design.widget.TextInputLayout>
+                <EditText
+                    android:id="@+id/name_Edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="25dp"
+                    android:drawablePadding="5dp"
+                    android:hint="@string/Name"
+                    android:inputType="text"
+                    android:layoutDirection="rtl"
+                    android:maxLines="1"
+                    android:paddingRight="10dp"
+                    android:singleLine="true" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layoutDirection="rtl"
-            android:textDirection="rtl">
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/email_Edittext"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:gravity="center"
                 android:layout_marginTop="20dp"
-                android:drawablePadding="5dp"
-                android:hint="@string/Email"
-                android:inputType="text"
                 android:layoutDirection="rtl"
-                android:maxLines="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="10dp"
-                android:singleLine="true" />
+                android:textDirection="rtl">
 
-        </android.support.design.widget.TextInputLayout>
+                <EditText
+                    android:id="@+id/email_Edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawablePadding="5dp"
+                    android:hint="@string/Email"
+                    android:inputType="text"
+                    android:layoutDirection="rtl"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
+            </android.support.design.widget.TextInputLayout>
 
-            android:layoutDirection="rtl"
-            android:textDirection="rtl">
-
-            <EditText
-                android:id="@+id/phone_Edittext"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:gravity="center"
                 android:layout_marginTop="20dp"
-                android:drawablePadding="5dp"
-                android:hint="@string/PhoneNumber"
-                android:inputType="text"
+
                 android:layoutDirection="rtl"
-                android:maxLines="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="10dp"
-                android:singleLine="true" />
-        </android.support.design.widget.TextInputLayout>
+                android:textDirection="rtl">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
+                <EditText
+                    android:id="@+id/phone_Edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawablePadding="5dp"
+                    android:hint="@string/PhoneNumber"
+                    android:inputType="text"
+                    android:layoutDirection="rtl"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
 
-            android:layoutDirection="rtl"
-            android:textDirection="rtl">
-
-            <EditText
-                android:id="@+id/password_Edittext"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:gravity="center"
                 android:layout_marginTop="20dp"
-                android:drawablePadding="5dp"
-                android:hint="@string/Password"
-                android:inputType="text"
+
                 android:layoutDirection="rtl"
-                android:maxLines="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="10dp"
-                android:singleLine="true" />
-        </android.support.design.widget.TextInputLayout>
+                android:textDirection="rtl">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:layoutDirection="rtl"
-            android:layout_marginTop="20dp"
+                <EditText
+                    android:id="@+id/password_Edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawablePadding="5dp"
+                    android:hint="@string/Password"
+                    android:inputType="text"
+                    android:layoutDirection="rtl"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
 
-            android:textDirection="rtl">
-
-            <EditText
-                android:id="@+id/retypePassword_Edittext"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:drawablePadding="5dp"
-                android:hint="@string/ConfirmPassword"
-                android:inputType="text"
+                android:gravity="center"
                 android:layoutDirection="rtl"
-                android:maxLines="1"
-                android:paddingLeft="5dp"
-                android:paddingRight="10dp"
-                android:singleLine="true" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_marginTop="20dp"
 
-        <Button
-            android:id="@+id/signup_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/Signup"
-            android:background="@drawable/mybtn_style"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+                android:textDirection="rtl">
+
+                <EditText
+                    android:id="@+id/retypePassword_Edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawablePadding="5dp"
+                    android:hint="@string/ConfirmPassword"
+                    android:inputType="text"
+                    android:layoutDirection="rtl"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/signup_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/Signup"
+                android:background="@drawable/mybtn_style"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
             <ProgressBar
                 android:layout_width="match_parent"
                 android:id="@+id/progress_bar"
                 android:visibility="gone"
                 android:layout_height="wrap_content" />
-</LinearLayout>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -195,5 +195,4 @@ android:gravity="center"
         </LinearLayout>
 
     </LinearLayout>
-
 </ScrollView>
